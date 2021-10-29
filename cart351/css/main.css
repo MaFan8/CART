@@ -1,0 +1,409 @@
+@import "https://fonts.googleapis.com/css?family=Passion+One|Poiret+One";
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  overflow: hidden;
+}
+
+section.header_lrg {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 35vh;
+  height: auto;
+  background: #333;
+}
+
+.header_lrg header a{
+  text-align: center;
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+.header_lrg h2 {
+  font-family: "Poiret One", sans-serif;
+  font-size: 3em;
+  line-height: 1em;
+  text-transform: capitalize;
+  color: #eee;
+  font-weight: normal;
+}
+
+.header_lrg h1 {
+  font-family: "Passion One", sans-serif;
+  font-size: 6em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+section.subtitles {
+  display: grid;
+  width: 100vw;
+  height: 75vh;
+  margin: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-gap: 0.2rem;
+}
+
+.subtitles a {
+  text-decoration: none;
+}
+
+.subtitles img {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  padding: 80px;
+}
+
+.subtitles img:hover {
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+
+h1.section-title {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  font-size: 3.2vmin;
+  margin-left: 65px;
+}
+
+h1.section-title:hover {
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+
+h2 {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 3.5vmin;
+  padding: inherit;
+  text-indent: 50px;
+}
+
+h3 {
+  font-family: Helvetica;
+  color: #333;
+  font-size: 2.5vmin;
+  font-weight: lighter;
+  text-indent: 30px;
+  padding: 10px;
+}
+
+p {
+  /* display: block; */
+  font-family: Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  line-height: 30px;
+  text-align: justify;
+  /* text-indent: inherit; */
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 40px;
+}
+
+
+/* Navigation positions */
+#exercises {
+  grid-column: 1/6;
+  grid-row: 1/5;
+}
+
+#presentation {
+  grid-column: 6/12;
+  grid-row: 1/5;
+}
+
+#reflections {
+  grid-column: 11/16;
+  grid-row: 1/5;
+}
+
+#project {
+  grid-column: 16/22;
+  grid-row: 1/5;
+}
+
+
+/* Dots */
+.dots {
+  background: #333;
+  opacity: 0.2;
+  border-radius: 40px;
+}
+#dot1 {
+  grid-column: 19;
+  grid-row: 2;
+}
+#dot2 {
+  grid-column: 19;
+  grid-row: 4;
+}
+#dot3 {
+  grid-column: 17;
+  grid-row: 2;
+}
+#dot4 {
+  grid-column: 17;
+  grid-row: 4;
+}
+#dot5 {
+  grid-column: 14;
+  grid-row: 2;
+}
+#dot6 {
+  grid-column: 14;
+  grid-row: 4;
+}
+
+.ex_box {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* EXERCISES */
+#ex_links {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2.5vmin;
+  line-height: 50px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 5/17;
+  grid-row: 6/10;
+}
+
+
+a:hover {
+  color: #DC3534;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+
+a:after {
+  color: #D5EFFC;
+}
+
+.ex_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 2s ease;
+  margin-bottom: 30px;
+  padding-left: 50px;
+}
+
+/* PRESENtATION */
+#slides_link {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  font-size: 2vmin;
+  line-height: 60px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 4;
+  grid-row: 2/8;
+}
+
+#slides_link h2 {
+  padding-top: 50px;
+}
+
+.slides_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 2s ease;
+}
+
+#presentation_links {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  text-align: right;
+  line-height: 50px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 11/19;
+  grid-row: 7/10;
+  overflow: auto;
+}
+
+.pr_box h2 {
+  padding-right: 50px;
+}
+
+.pr_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 5s ease;
+  z-index: -1;
+  margin-bottom: 20px;
+}
+
+/* REFLECTIONS */
+#ref_links1 {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  text-align: right;
+  line-height: 80px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 3/10;
+  grid-row: 3/6;
+}
+
+.ref1_box h2 {
+  padding-right: 50px;
+}
+
+.ref1_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 2s ease;
+  z-index: -1;
+  margin-bottom: 20px;
+}
+
+#ref_links2 {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  line-height: 50px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 15/20;
+  grid-row: 7/10;
+  overflow: auto;
+}
+
+.ref2_box h2 {
+  padding-left: 50px;
+}
+
+.ref2_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 5s ease;
+  z-index: -1;
+  margin-bottom: 20px;
+}
+
+/* PROJECT */
+#proposal_link {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  text-align: right;
+  font-size: 2vmin;
+  line-height: 60px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 15;
+  grid-row: 4/10;
+}
+
+.proposal_box h2 {
+  padding-bottom : 50px;
+}
+
+.proposal_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 2s ease;
+}
+
+.story {
+  /* position: relative; */
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;d
+}
+
+
+.story_img {
+  max-width: 40vmax;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#middle_links {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  text-align: right;
+  line-height: 40px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 6/14;
+  grid-row: 3/5;
+}
+
+.mid_box h2 {
+  padding-right: 50px;
+}
+
+.mid_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 4s ease;
+  z-index: -1;
+  margin-bottom: 30px;
+}
+
+#final_link {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2.5vmin;
+  line-height: 180px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 4/9;
+  grid-row: 7/10;
+}
+
+.final_box h2 {
+  padding-left: 50px;
+}
+
+.final_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 6s ease;
+  z-index: -1;
+  margin-bottom: 30px;
+}
