@@ -13,14 +13,14 @@ document.getElementById('exercises').addEventListener('click', function() {
   reflections.style.visibility = "hidden";
   project.style.visibility = "hidden";
   //unhide lists
-  document.getElementById('ex_links').style.display = "block";
+  document.getElementById('ex_grid_pos').style.display = "block";
 }
 else{
   presentation.style.visibility = "visible";
   reflections.style.visibility = "visible";
   project.style.visibility = "visible";
   //unhide lists
-  document.getElementById('ex_links').style.display = "none";
+  document.getElementById('ex_grid_pos').style.display = "none";
 }
   clickCount = clickCount+1;
   //show dots
@@ -35,16 +35,17 @@ document.getElementById('presentation').addEventListener('click', function() {
   reflections.style.visibility = "hidden";
   project.style.visibility = "hidden";
   //unhide lists
-  // document.getElementById('slides_link').style.display = "block";
-  document.getElementById('presentation_links').style.display = "block";
+  document.getElementById('slides_box').style.display = "block";
+  document.getElementById('pres_box').style.display = "block";
+  // document.getElementById('presentation_links').style.display = "block";
 }
 else {
   exercises.style.visibility = "visible";
   reflections.style.visibility = "visible";
   project.style.visibility = "visible";
   //unhide lists
-  // document.getElementById('slides_link').style.display = "block";
-  document.getElementById('presentation_links').style.display = "none";
+  document.getElementById('slides_box').style.display = "none";
+  document.getElementById('pres_box').style.display = "none";
 }
   clickCount = clickCount+1;
   //show dots

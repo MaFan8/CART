@@ -3,13 +3,13 @@
 
 * {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   box-sizing: border-box;
 }
 
 body {
   font-size: 16px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 section.header_lrg {
@@ -91,7 +91,7 @@ h2 {
   color: #333;
   font-size: 3.5vmin;
   padding: inherit;
-  text-indent: 50px;
+  display:inline-block
 }
 
 h3 {
@@ -101,6 +101,10 @@ h3 {
   font-weight: lighter;
   text-indent: 30px;
   padding: 10px;
+}
+
+h5 {
+  display:inline-block
 }
 
 p {
@@ -178,19 +182,7 @@ p {
   overflow: hidden;
 }
 
-/* EXERCISES */
-#ex_links {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2.5vmin;
-  line-height: 50px;
-  list-style-type: none;
-  text-decoration: none;
-  grid-column: 5/17;
-  grid-row: 6/10;
-}
-
-
+/* link actions */
 a:hover {
   color: #DC3534;
   opacity: 0.3;
@@ -199,6 +191,19 @@ a:hover {
 
 a:after {
   color: #D5EFFC;
+}
+
+
+/* EXERCISES */
+#ex_grid_pos {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 2.5vmin;
+  line-height: 50px;
+  list-style-type: none;
+  text-decoration: none;
+  grid-column: 5/17;
+  grid-row: 6/10;
 }
 
 .ex_box {
@@ -211,54 +216,39 @@ a:after {
 }
 
 /* PRESENtATION */
-#slides_link {
+#slides_box, #pres_box {
   font-family: "Gruppo", Helvetica;
   color: #333;
-  text-orientation: mixed;
-  writing-mode: vertical-rl;
   font-size: 2vmin;
   line-height: 60px;
   list-style-type: none;
   text-decoration: none;
-  grid-column: 4;
-  grid-row: 2/8;
 }
 
-#slides_link h2 {
-  padding-top: 50px;
-}
-
-.slides_box {
+#slides_box {
   background: blanchedalmond;
   opacity: 0.8;
   border-radius: 15px;
   transition: all 2s ease;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  grid-column: 4;
+  grid-row: 2/8;
+  padding-top: 50px;
 }
 
-#presentation_links {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2vmin;
-  text-align: right;
-  line-height: 50px;
-  list-style-type: none;
-  text-decoration: none;
-  grid-column: 11/19;
-  grid-row: 7/10;
-  overflow: auto;
-}
-
-.pr_box h2 {
-  padding-right: 50px;
-}
-
-.pr_box {
+#pres_box {
   background: blanchedalmond;
   opacity: 0.8;
   border-radius: 15px;
-  transition: all 5s ease;
-  z-index: -1;
+  transition: all 2s ease;
+  text-align: right;
+  grid-column: 11/19;
+  grid-row: 7/10;
+  margin-top: 20px;
+  padding-right: 50px;
   margin-bottom: 20px;
+  overflow: auto;
 }
 
 /* REFLECTIONS */
@@ -327,8 +317,14 @@ a:after {
   grid-row: 4/10;
 }
 
-.proposal_box h2 {
+/* .proposal_box h2 {
   padding-bottom : 50px;
+} */
+
+.proposal {
+  padding-top: 20px;
+  padding-bottom : 10px;
+  text-indent: 50px;
 }
 
 .proposal_box {
@@ -338,6 +334,7 @@ a:after {
   transition: all 2s ease;
 }
 
+/* STORYBOARD */
 .story {
   /* position: relative; */
   width: 90%;
