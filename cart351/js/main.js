@@ -25,7 +25,7 @@ else{
   clickCount = clickCount+1;
   //show dots
   // document.getElementsByClassName('dots').style.display = "block";
-  document.querySelectorAll('span.dots').style.display = "block";
+  // document.querySelectorAll('span.dots').style.display = "block";
 }); // END CLICK
 
 // CLICK PRESENTATION

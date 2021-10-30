@@ -1,0 +1,55 @@
+{
+  "Entries": [
+    {
+      "Day": "Thursday",
+      "Date": "October 6, 2021",
+      "Frequency": "3",
+      "Temperature": "21",
+      "Blinds": "Open",
+      "Pruning": "non",
+      "Watering": "non",
+      "Plants of Concern": ["Alien Hands","Pilea"],
+      "Plant_Image": ["images/pilea.jpg"],
+      "Plantlets": "non"
+    },
+
+    {
+      "Day": "Tuesday",
+      "Date": "October 12, 2021",
+      "Frequency": "1",
+      "Temperature": "20",
+      "Blinds": "Open",
+      "Pruning": "non",
+      "Watering": "non",
+      "Plants of Concern": ["Alien Hands","Pilea"],
+      "Plant_Image": ["images/alienHands.jpg", "images/pilea.jpg"],
+      "Plantlets": "non"
+    },
+
+    {
+      "Day": "Friday",
+      "Date": "October 15, 2021",
+      "Frequency": "5",
+      "Temperature": "26",
+      "Blinds": "Open",
+      "Pruning": "Spider Plant",
+      "Watering": "Alien Hands",
+      "Plants of Concern": "Alien Hands",
+      "Plant_Image": ["images/alienHands.jpg"],
+      "Plantlets": "non"
+    },
+
+    {
+      "Day": "Sunday",
+      "Date": "October 17, 2021",
+      "Frequency": "2",
+      "Temperature": "22",
+      "Blinds": "Open",
+      "Pruning": ["Palmy Plant, Alien Hands"],
+      "Watering": "Shower",
+      "Plants of Concern": "Pilea",
+      "Plant_Image": ["images/pilea.jpg"],
+      "Plantlets": "No Name (Daniella's) keeps on proprogating..."
+    }
+  ]
+}

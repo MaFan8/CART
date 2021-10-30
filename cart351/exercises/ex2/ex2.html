@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/ex1.css">
+
+  <title>PLANT LEDGER</title>
+
+  <script src="jQuery/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      let section = $('section');
+      let loaded = false;
+      let date;
+
+      // click function
+      $("#getData").click(function(event) {
+        date = document.getElementById("date").value;
+        $(section).empty();
+        loaded = false;
+
+        // if JSON is loaded, run  showEntry() and display on page
+        if (loaded === false) {
+          console.log("get_clicked");
+
+          $.getJSON('plantLedger.json', function(data) {
+              loaded = true;
+              showEntry(data);
+            })
+            // if fail
+            .fail(function() {
+              console.log("error");
+            });
+        } else {
+          console.log("data was loaded");
+          console.log(day);
+        }
+      }); // END click function
+
+
+      let entry = $('<article>');
+
+      function showEntry(data) {
+        // array of Entries
+        let days = data['Entries'];
+        let current = date - 1; // align date to array number
+
+        // console.log(days);
+
+        let plant_keys = Object.keys(days[current]);
+        for (let i = 0; i < plant_keys.length; i++) {
+          if (plant_keys[i] === "Plant_Image") {
+            let images = days[current][plant_keys[i]];
+            for (let j = 0; j < images.length; j++) {
+              let img_show = $("<img>");
+              $(img_show).attr("src", images[j]);
+              $(img_show).appendTo(entry);
+            }
+            // console.log(images);
+          } else {
+            let paragraph = $("<p>");
+            $(paragraph).text(plant_keys[i] + ": "+ days[current][plant_keys[i]]);
+            $(paragraph).appendTo(entry);
+          }
+        }
+        $(section).append(entry);
+      } // END showEntry function
+
+    }); // END ready function
+  </script>
+</head>
+
+<body>
+  <header></header>
+  <h1>Plant Ledger</h1>
+  <div class="search">
+    <p class="on">Which Entry?
+      <input type="number" min="1" max="4" id="date" value="Day" />
+      <input type="button" value="Display" id="getData" />
+    </p>
+  </div>
+  <section id="result-container">
+  </section>
+</body>
+
+</html>
