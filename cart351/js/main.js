@@ -50,7 +50,7 @@ else {
   //show dots
   // document.getElementById('dots').style.display = "block";
 });// END CLICK
-//
+
 // CLICK REFLECTION
 document.getElementById('reflections').addEventListener('click', function() {
   if (clickCount%2==0) {
@@ -74,37 +74,28 @@ else {
   // document.getElementById('dots').style.display = "block";
 });// END CLICK
 
-
-// document.getElementById('reflections').addEventListener('click', function() {
-//   presentation.style.visibility = "hidden";
-//   exercises.style.visibility = "hidden";
-//   project.style.visibility = "hidden";
-//   //remove hover in css
-//   reflections.style.pointerEvents = "none";
-//   //unhide lists
-//   document.getElementById('ref_links1').style.display = "block";
-//   document.getElementById('ref_links2').style.display = "block";
-// });
-//
+// CLICK PROJECT
 document.getElementById('project').addEventListener('click', function() {
   if (clickCount%2==0) {
   exercises.style.visibility = "hidden";
   reflections.style.visibility = "hidden";
   presentation.style.visibility = "hidden";
   //unhide lists
-  document.getElementById('proposal_link').style.display = "block";
+  document.getElementById('proposal_box').style.display = "block";
+  document.getElementById('proposal_mid_grid').style.display = "block";
+  document.getElementById('final_box').style.display = "block";
 }
 else {
   exercises.style.visibility = "visible";
   reflections.style.visibility = "visible";
   presentation.style.visibility = "visible";
   //unhide lists
-  // document.getElementById('slides_link').style.display = "block";
-  document.getElementById('proposal_link').style.display = "none";
+  document.getElementById('proposal_box').style.display = "none";
+  document.getElementById('proposal_mid_grid').style.display = "none";
+  document.getElementById('final_box').style.display = "none";
 }
   clickCount = clickCount+1;
-
-});
+}); // END CLICK
 
 
 }

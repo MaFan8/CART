@@ -284,35 +284,62 @@ a:after {
 
 
 /* PROJECT */
-#proposal_link {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
+#proposal_box, #proposal_mid_grid, #final_box {
+  font-size: 2vmin;
+  text-align: right;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#proposal_box {
   text-orientation: mixed;
   writing-mode: vertical-rl;
-  text-align: right;
-  font-size: 2vmin;
   line-height: 60px;
+  padding-bottom : 50px;
   list-style-type: none;
   text-decoration: none;
   grid-column: 15;
   grid-row: 4/10;
-}
-
-/* .proposal_box h2 {
-  padding-bottom : 50px;
-} */
-
-.proposal {
-  padding-top: 20px;
-  padding-bottom : 10px;
-  text-indent: 50px;
-}
-
-.proposal_box {
   background: blanchedalmond;
   opacity: 0.8;
   border-radius: 15px;
   transition: all 2s ease;
+}
+
+#proposal_mid_grid {
+  line-height: 40px;
+  grid-column: 6/14;
+  grid-row: 3/5;
+}
+
+#final_box {
+  font-size: 2.5vmin;
+  line-height: 180px;
+  grid-column: 4/9;
+  grid-row: 7/10;
+}
+
+.final_box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 4s ease;
+  z-index: -1;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.box {
+  background: blanchedalmond;
+  opacity: 0.8;
+  border-radius: 15px;
+  transition: all 4s ease;
+  z-index: -1;
+  margin-bottom: 30px;
+  padding-right: 50px;
 }
 
 /* STORYBOARD */
@@ -327,7 +354,6 @@ a:after {
   justify-content: space-between;d
 }
 
-
 .story_img {
   max-width: 40vmax;
   height: auto;
@@ -335,53 +361,4 @@ a:after {
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-#middle_links {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2vmin;
-  text-align: right;
-  line-height: 40px;
-  list-style-type: none;
-  text-decoration: none;
-  grid-column: 6/14;
-  grid-row: 3/5;
-}
-
-.mid_box h2 {
-  padding-right: 50px;
-}
-
-.mid_box {
-  background: blanchedalmond;
-  opacity: 0.8;
-  border-radius: 15px;
-  transition: all 4s ease;
-  z-index: -1;
-  margin-bottom: 30px;
-}
-
-#final_link {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2.5vmin;
-  line-height: 180px;
-  list-style-type: none;
-  text-decoration: none;
-  grid-column: 4/9;
-  grid-row: 7/10;
-}
-
-.final_box h2 {
-  padding-left: 50px;
-}
-
-.final_box {
-  background: blanchedalmond;
-  opacity: 0.8;
-  border-radius: 15px;
-  transition: all 6s ease;
-  z-index: -1;
-  margin-bottom: 30px;
 }
