@@ -1,0 +1,100 @@
+@import "https://fonts.googleapis.com/css?family=Passion+One|Poiret+One";
+@import url("https://fonts.googleapis.com/css2?family=Gruppo&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  /* padding: 0; */
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  overflow: scroll;
+}
+
+section.header_lrg {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 35vh;
+  height: auto;
+  background: #333;
+}
+
+.header_lrg header a{
+  text-align: center;
+  color: blanchedalmond;
+  text-decoration: none;
+}
+
+.header_lrg h2 {
+  font-family: "Poiret One", sans-serif;
+  font-size: 3em;
+  line-height: 1em;
+  text-transform: capitalize;
+  color: #eee;
+  font-weight: normal;
+}
+
+.header_lrg h1 {
+  font-family: "Passion One", sans-serif;
+  font-size: 6em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Gruppo", Helvetica;
+  color: #333;
+  font-size: 3.5vmin;
+  padding: inherit;
+  text-indent: 50px;
+  display:inline-block
+}
+
+h3 {
+  font-family: Helvetica;
+  color: #333;
+  font-size: 2.5vmin;
+  font-weight: lighter;
+  text-indent: 30px;
+  padding: 10px;
+}
+
+p {
+  /* display: block; */
+  font-family: Helvetica;
+  color: #333;
+  font-size: 2vmin;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  line-height: 30px;
+  text-align: justify;
+  /* text-indent: inherit; */
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+  margin-bottom: 40px;
+}
+
+/* STORYBOARD */
+.story {
+  /* position: relative; */
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;d
+}
+
+.story_img {
+  max-width: 40vmax;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -91,6 +91,7 @@ h2 {
   color: #333;
   font-size: 3.5vmin;
   padding: inherit;
+  text-indent: 50px;
   display:inline-block
 }
 
@@ -340,25 +341,4 @@ a:after {
   z-index: -1;
   margin-bottom: 30px;
   padding-right: 50px;
-}
-
-/* STORYBOARD */
-.story {
-  /* position: relative; */
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: space-between;d
-}
-
-.story_img {
-  max-width: 40vmax;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
