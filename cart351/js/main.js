@@ -6,7 +6,7 @@ let reflections = document.getElementById('reflections');
 let project = document.getElementById('project');
 let clickCount =0;
 
-// CLICK FUNCTION
+// CLICK EXERCIESE
 document.getElementById('exercises').addEventListener('click', function() {
   if(clickCount%2==0){
   presentation.style.visibility = "hidden";
@@ -26,9 +26,9 @@ else{
   //show dots
   // document.getElementsByClassName('dots').style.display = "block";
   document.querySelectorAll('span.dots').style.display = "block";
-}); // END CLICK FUNCTION
+}); // END CLICK
 
-// CLICK FUNCTION
+// CLICK PRESENTATION
 document.getElementById('presentation').addEventListener('click', function() {
   if (clickCount%2==0) {
   exercises.style.visibility = "hidden";
@@ -37,7 +37,6 @@ document.getElementById('presentation').addEventListener('click', function() {
   //unhide lists
   document.getElementById('slides_box').style.display = "block";
   document.getElementById('pres_box').style.display = "block";
-  // document.getElementById('presentation_links').style.display = "block";
 }
 else {
   exercises.style.visibility = "visible";
@@ -50,8 +49,32 @@ else {
   clickCount = clickCount+1;
   //show dots
   // document.getElementById('dots').style.display = "block";
-});// END CLICK FUNCTION
+});// END CLICK
 //
+// CLICK REFLECTION
+document.getElementById('reflections').addEventListener('click', function() {
+  if (clickCount%2==0) {
+  exercises.style.visibility = "hidden";
+  presentation.style.visibility = "hidden";
+  project.style.visibility = "hidden";
+  //unhide lists
+  document.getElementById('ref_grid1').style.display = "block";
+  document.getElementById('ref_grid2').style.display = "block";
+}
+else {
+  exercises.style.visibility = "visible";
+  presentation.style.visibility = "visible";
+  project.style.visibility = "visible";
+  //unhide lists
+  document.getElementById('ref_grid1').style.display = "none";
+  document.getElementById('ref_grid2').style.display = "none";
+}
+  clickCount = clickCount+1;
+  //show dots
+  // document.getElementById('dots').style.display = "block";
+});// END CLICK
+
+
 // document.getElementById('reflections').addEventListener('click', function() {
 //   presentation.style.visibility = "hidden";
 //   exercises.style.visibility = "hidden";

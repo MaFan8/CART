@@ -252,55 +252,36 @@ a:after {
 }
 
 /* REFLECTIONS */
-#ref_links1 {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2vmin;
+#ref_grid1, #ref_grid2 {
   text-align: right;
-  line-height: 80px;
   list-style-type: none;
   text-decoration: none;
+}
+
+#ref_grid1 {
+  font-size: 2vmin;
+  line-height: 80px;
   grid-column: 3/10;
   grid-row: 3/6;
 }
 
-.ref1_box h2 {
-  padding-right: 50px;
+#ref_grid2 {
+  font-size: 1.5vmin;
+  line-height: 50px;
+  grid-column: 15/20;
+  grid-row: 7/10;
 }
 
-.ref1_box {
+.ref_box {
   background: blanchedalmond;
   opacity: 0.8;
   border-radius: 15px;
   transition: all 2s ease;
   z-index: -1;
   margin-bottom: 20px;
+  padding-right: 50px;
 }
 
-#ref_links2 {
-  font-family: "Gruppo", Helvetica;
-  color: #333;
-  font-size: 2vmin;
-  line-height: 50px;
-  list-style-type: none;
-  text-decoration: none;
-  grid-column: 15/20;
-  grid-row: 7/10;
-  overflow: auto;
-}
-
-.ref2_box h2 {
-  padding-left: 50px;
-}
-
-.ref2_box {
-  background: blanchedalmond;
-  opacity: 0.8;
-  border-radius: 15px;
-  transition: all 5s ease;
-  z-index: -1;
-  margin-bottom: 20px;
-}
 
 /* PROJECT */
 #proposal_link {
