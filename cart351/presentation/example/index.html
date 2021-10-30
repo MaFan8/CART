@@ -1,20 +1,208 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script async src="https://cse.google.com/cse.js?cx=2b47b5c86db0b99d5"></script>
-</head>
-<body>
-  <div class="gcse-searchbox"></div>
-  <div class="gcse-searchresults"></div>
 
-</body>
+</head>
+
+<script src="jQuery/jquery-3.6.0.min.js"></script>
 
 <script>
-let apiKey = 'AIzaSyB7qg_g6po_RMjWGnz8TjRuUxR0--dDOGI';
+  $(document).ready(function() {
+    $('#btnSearch').show().click(function() {
+      Search($("#txtSearchTerm").val(), 0);
+    });
+    $('#lnkPrev').click(function() {
+      Search($("#txtSearchTerm").val(), -1);
+    });
+    $('#lnkNext').click(function() {
+      Search($("#txtSearchTerm").val(), 1);
+    });
+  });
+
+  function Search(term, direction) {
+    url = "https://www.googleapis.com/customsearch/v1?key= AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug&cx=2b47b5c86db0b99d5&q=helloworld";
+    $.getJSON(url, '', SearchCompleted);
+  }
+
+  function SearchCompleted(response) {
+    let html = "";
+    for (i = 0; i < response.items.length; i++) {
+      html += response.items[i].htmlTitle + "<br />";
+    }
+    $("#output").html(html);
+  }
+</script>
+
+
+
+<body>
+
+  <input type="text" id="txtSearchTerm" size="40" />
+  <button id="btnSearch" style="display:none;">Start Search</button>
+
+  <div id="searchResult"></div>
+  <div id="output"></div>
+</body>
+
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<script src="jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+var _prevIndex = 0;
+var _nextIndex = 0;
+var _resultsPerPage = 10;
+var _pageNumber = 1;
+
+$(function ()
+{
+    $('#btnSearch').show().click(function () { Search($("#txtSearchTerm").val(),0);});
+    $('#lnkPrev').click(function () { Search($("#txtSearchTerm").val(),-1); });
+    $('#lnkNext').click(function () { Search($("#txtSearchTerm").val(),1);  });
+});
+
+function Search(term, direction)
+{
+    var startIndex = 1;
+
+    if (direction === -1)
+    {
+        startIndex = _prevIndex;
+        _pageNumber--;
+    }
+    if (direction === 1)
+    {
+        startIndex = _nextIndex;
+        _pageNumber++;
+    }
+    if (direction === 0)
+    {
+        startIndex = 1;
+        _pageNumber = 1;
+    }
+
+    // deprecated?
+    // https://customsearch.googleblog.com/2017/02/refocusing-and-looking-forward-on.html
+
+    // My own explanation of this.
+    // https://peter.hahndorf.eu/blog/UsingTheGoogleCustomSearchAPIV.html
+
+    var url = """https://www.googleapis.com/customsearch/v1?key="
+    + "AIzaSyAWjLOPLbcxEA7txCD83hOx2Xp9_GmS6Wg" + "&num=10&cx=" +  "2b47b5c86db0b99d5"  + "&start=" + startIndex + "&q=" + escape(term) + "&callback=?"";
+
+    // for local testing without google.
+    // http://localhost/ws/dummy.aspx?q=singapore&start=1&callback=?
+    // url = "http://hahndorf/ws/dummy.aspx?q=" + escape(term) + "&start=" + startIndex + "&callback=?";
+
+    $.getJSON(url, '', SearchCompleted);
+}
+
+function SearchCompleted(response)
+{
+    var html = "";
+    $("#searchResult").html("");
+
+    if (response.items == null)
+    {
+        $("#searchResult").html("No matching pages found");
+        return;
+    }
+
+    if (response.items.length === 0)
+    {
+        $("#searchResult").html("No matching pages found");
+        return;
+    }
+
+    $("#searchResult").html(response.queries.request[0].totalResults + " pages found");
+
+    if (response.queries.nextPage != null)
+    {
+        _nextIndex = response.queries.nextPage[0].startIndex;
+        $("#lnkNext").show();
+    }
+    else
+    {
+        $("#lnkNext").hide();
+    }
+
+    if (response.queries.previousPage != null)
+    {
+        _prevIndex = response.queries.previousPage[0].startIndex;
+        $("#lnkPrev").show();
+    }
+    else
+    {
+        $("#lnkPrev").hide();
+    }
+
+    if (response.queries.request[0].totalResults > _resultsPerPage)
+    {
+        $("#lblPageNumber").show().html(_pageNumber);
+    }
+    else
+    {
+        $("#lblPageNumber").hide();
+    }
+
+    for (var i = 0; i < response.items.length; i++)
+    {
+        var item = response.items[i];
+        var title = item.htmlTitle;
+        var icon = icon = "class='cmisc' title='Other page'";
+
+        title = title.replace("- Peter Hahndorf", "");
+        title = title.replace("- Forever Breathes The Lonely Word", "");
+        title = title.replace("Forever Breathes The Lonely Word - ", "");
+
+        if (item.link.indexOf("/tech/") > -1)
+        {
+            icon = "class='ctech' title='Tech Stuff'";
+        }
+
+        if (item.link.indexOf("/trip/") > -1)
+        {
+            icon = "class='ctravel' title='Travel'";
+        }
+
+        if (item.link.indexOf("/blog/") > -1)
+        {
+            icon = "class='cblog' title='Technical blog'";
+        }
+
+        html += "<div><div class='hcHead2'><a " + icon + " href='" + item.link + "'> " + title + "</a></div>";
+        html += item.htmlSnippet + "</div>";
+    }
+
+    $("#output").html(html);
+}
 
 </script>
+
+<body>
+
+  <input type="text" id="txtSearchTerm" size="40" />
+  <button id="btnSearch" style="display:none;">Start Search</button>
+
+  <div id="searchResult"></div>
+  <div id="output"></div>
+</body>
+
 </html>
