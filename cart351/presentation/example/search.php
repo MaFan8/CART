@@ -46,8 +46,8 @@ function if_get_google_custom_search_results() {
 	//check our search keyword value (working) > // echo $q;
 
 	// build our request
-	$key = 'AIzaSyAWjLOPLbcxEA7txCD83hOx2Xp9_GmS6Wg ';
-	$cx_search_id = '2b47b5c86db0b99d5 ';
+	$key = 'AIzaSyAWjLOPLbcxEA7txCD83hOx2Xp9_GmS6Wg';
+	$cx_search_id = '2b47b5c86db0b99d5';
 	$base_url = 'https://www.googleapis.com/customsearch/v1?key=';
 	$request_url = $base_url . $key . '&cx=' . $cx_search_id . '&q=' . $q;
 

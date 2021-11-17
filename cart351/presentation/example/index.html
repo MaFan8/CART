@@ -16,16 +16,32 @@
     $('#btnSearch').show().click(function() {
       Search($("#txtSearchTerm").val(), 0);
     });
-    $('#lnkPrev').click(function() {
-      Search($("#txtSearchTerm").val(), -1);
+
+    $("#btnSearch").keyup(function(event) {
+    if (event.keyCode === 13) {
+        this.click(function() {
+          Search($("#txtSearchTerm").val(), 0);
+          console.log("clicked");
     });
-    $('#lnkNext').click(function() {
-      Search($("#txtSearchTerm").val(), 1);
-    });
+  }
   });
 
+
+    // $('#lnkPrev').click(function() {
+    //   Search($("#txtSearchTerm").val(), -1);
+    // });
+    // $('#lnkNext').click(function() {
+    //   Search($("#txtSearchTerm").val(), 1);
+    // });
+
+  });
+
+  let apiKey = 'AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug';
+  let searchEngineID = '2b47b5c86db0b99d5';
+
   function Search(term, direction) {
-    url = "https://www.googleapis.com/customsearch/v1?key=&cx=2b47b5c86db0b99d5&q=helloworld";
+    // url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug&cx=2b47b5c86db0b99d5&q=helloworld";
+    url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineID}&q=${term}`;
     $.getJSON(url, '', SearchCompleted);
   }
 
@@ -35,7 +51,10 @@
       html += response.items[i].htmlTitle + "<br />";
     }
     $("#output").html(html);
+
+    console.log(response);
   }
+
 </script>
 
 
@@ -56,6 +75,7 @@
 
   <div id="searchResult"></div>
   <div id="output"></div>
+
 </body>
 
 
