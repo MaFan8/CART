@@ -43,6 +43,9 @@
     // url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug&cx=2b47b5c86db0b99d5&q=helloworld";
     url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineID}&q=${term}`;
     $.getJSON(url, '', SearchCompleted);
+    $.getJSON(url, '', function(data) {
+      console.log(data);
+    });
   }
 
   function SearchCompleted(response) {
