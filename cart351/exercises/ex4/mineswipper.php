@@ -77,20 +77,24 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["getAjaxOnLoad"]))
             //Do Something
             console.log("responded" +response);
             let ids = [];
+            let revealedCells='';
 
             // get data
             let parsedJSON = JSON.parse(response);
-            // console.log(parsedJSON);
 
             //double parse ... because double encoded ...
             for (let i = 0; i<parsedJSON.length; i++){
               let ps = JSON.parse(parsedJSON[i]);
-              console.log(ps.id);
-              
-              }
-            }
+              revealedCells = '#' + ps.id;
+              //   if(revealedCells!=''){
+              //     $('revealedCells').removeClass('hidden').addClass('revealed');
+              //   }
+              //   console.log(revealedCells);
+              // } // end parsing file from server
+
 
             createGrid(ids);
+
           }
 
         }); // END ajax
@@ -163,7 +167,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["getAjaxOnLoad"]))
           }
             formData.append('lengthOfVals',JSON.stringify(revealed.length));
 
-            console.log(formData);
 
             $.ajax({
               type: "POST",
