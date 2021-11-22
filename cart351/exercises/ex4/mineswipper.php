@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["getAjaxOnLoad"]))
               //     $('revealedCells').removeClass('hidden').addClass('revealed');
               //   }
               //   console.log(revealedCells);
-              // } // end parsing file from server
+              } // end parsing file from server
 
 
             createGrid(ids);
