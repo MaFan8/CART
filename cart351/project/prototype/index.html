@@ -23,102 +23,11 @@
 </head>
 
 <body>
-
+  
   <script src="js/three.js" type="text/javascript"></script>
   <script src="js/OrbitControls.js"></script>
   <script type="text/javascript" src="js/main.js" ></script>
 
-  <!-- <script>
-    let scene = new THREE.Scene();
-    let background = new THREE.Color(0x945a58);
-    // let fog = new THREE.FogExp2(0xcccccc, 0.002);
-    let camera = new THREE.PerspectiveCamera(5, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.set(10, 20, 100);
-    let USE_WIREFRAME = false;
-
-    let meshFloor = new THREE.Mesh (
-      new THREE.PlaneGeometry(10,10,10,10),
-      new THREE.MeshBasicMaterial({color:0xffffff, wireframe:USE_WIREFRAME})
-    );
-
-    let renderer = new THREE.WebGLRenderer({
-      antialias: true
-    });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-
-
-    // udate canvas when resizing window
-    window.addEventListener('resize', function() {
-      let width = window.innerWidth;
-      let height = window.innerHeight;
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-    });
-
-    // controls
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.listenToKeyEvents(window); // optional
-    // controls.keys = {
-    //   LEFT: 'ArrowLeft', //left arrow
-    //   UP: 'ArrowUp', // up arrow
-    //   RIGHT: 'ArrowRight', // right arrow
-    //   BOTTOM: 'ArrowDown' // down arrow
-    // }
-
-    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
-    controls.dampingFactor = 0.1;
-
-    controls.screenSpacePanning = true;
-
-    controls.minDistance = 100;
-    controls.maxDistance = 500;
-
-    controls.maxPolarAngle = Math.PI / 2;
-
-
-
-
-    // world
-    let geometry = new THREE.BoxGeometry(1, 1, 1);
-
-    // create material
-    let material = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
-      wireframe: true,
-    });
-    let cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 3; //front position
-
-
-
-    // game logic
-    let update = function() {
-      // cube.rotation.x += 0.01;
-      // cube.rotation.y += 0.01;
-    };
-
-    // draw scene
-    let render = function() {
-      renderer.render(scene, camera);
-    };
-
-    // run game loop (update, render, repeat)
-    let gameLoop = function() {
-      requestAnimationFrame(gameLoop);
-
-      controls.update();
-      update();
-      render();
-    };
-
-    gameLoop();
-  </script> -->
 
 </body>
 
