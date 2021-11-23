@@ -8,98 +8,93 @@
   <title>Document</title>
 
 </head>
-
-<script src="jQuery/jquery-3.6.0.min.js"></script>
-
+<!-- scripts -->
+<link rel="stylesheet" href="css/style.css">
+<script src="jquery-3.6.0.min.js"></script>
+<script type='text/javascript' src='js/config.js'></script>
 <script>
+  // onLoad
   $(document).ready(function() {
     $('#btnSearch').show().click(function() {
       Search($("#txtSearchTerm").val(), 0);
     });
 
     $("#btnSearch").keyup(function(event) {
-    if (event.keyCode === 13) {
+      if (event.keyCode === 13) {
         this.click(function() {
           Search($("#txtSearchTerm").val(), 0);
           console.log("clicked");
+        });
+      }
     });
-  }
-  });
 
+  }); // END onLoad
 
-    // $('#lnkPrev').click(function() {
-    //   Search($("#txtSearchTerm").val(), -1);
-    // });
-    // $('#lnkNext').click(function() {
-    //   Search($("#txtSearchTerm").val(), 1);
-    // });
+  // variables
 
-  });
-
-  let apiKey = 'AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug';
-  let searchEngineID = '2b47b5c86db0b99d5';
+  // let tokenAPI = config.MY_API_TOKEN;
+  let keyAPI = config.SECRET_API_KEY;
+  // let tokenID = config.MY_SEARCH_ENGINE_ID_TOKEN;
+  let keyID = config.MY_SEARCH_ENGINE_ID;
 
   function Search(term, direction) {
-    // url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyD4lL9yrVYM9NMXNSv03Qpsth8EPcVKZug&cx=2b47b5c86db0b99d5&q=helloworld";
-    url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${searchEngineID}&q=${term}`;
+    url = `https://www.googleapis.com/customsearch/v1?key=${keyAPI}&cx=${keyID}&q=${term}`;
     $.getJSON(url, '', SearchCompleted);
     $.getJSON(url, '', function(data) {
-      console.log(data);
+      // console.log(data);
     });
-  }
+  } // END Search
 
   function SearchCompleted(response) {
-    let html = "";
-    for (i = 0; i < response.items.length; i++) {
-      html += response.items[i].htmlTitle + "<br />";
-    }
-    $("#output").html(html);
+
+    response.items.forEach(item => {
+      // create elements
+      let a = document.createElement('a');
+      let br = document.createElement('br');
+      // set the href attribute to the value of item.link
+      a.setAttribute('href', item.link);
+      a.innerText = item.title; // make text clickable
+
+      let results = document.getElementById('output');
+      results.appendChild(a);
+      a.appendChild(br);
+    });
 
     console.log(response);
-  }
-
+  } // END SearchCompleted
 </script>
 
 
 <body>
-
+  
   <script async src="https://cse.google.com/cse.js?cx=2b47b5c86db0b99d5"></script>
 
-  <div style="border: 1px solid blue;">
-      <div class="gcse-searchbox" enableAutoComplete="true"></div>
+  <section>
+    <h1 class="title">Google Custom Search JSON API</h1>
+  </section>
+
+  <!-- Search Engine Example-->
+  <div class="searchBox">
+    <h2 class="subtitle">Programmable Search Engine</h2>
+    <div class="gcse-searchbox" enableAutoComplete="true"></div>
   </div>
 
-  <div style="border: 1px solid red;">
-      <div class="gcse-searchresults"></div>
+  <div class="searchResults" style=" color: #badad8; width: 1000px; position: relative; margin: auto; padding-bottom: 20px;">
+    <div class="gcse-searchresults"></div>
   </div>
 
-  <input type="text" id="txtSearchTerm" size="40" />
-  <button id="btnSearch" style="display:none;">Start Search</button>
+  <!-- JSON Example -->
+  <div class="searchBox">
+    <h2 class="subtitle">JSON API</h2>
+    <input type="text" id="txtSearchTerm" size="43" />
+    <button id="btnSearch" style="display:none;">Start Search</button>
+  </div>
 
-  <div id="searchResult"></div>
-  <div id="output"></div>
+  <div class="searchResult" id="searchResult">
+    <div id="output"><br /></div>
+  </div>
 
 </body>
 
 
 </html>
-
-<!-- <html>
-  <head>
-    <title>JSON Custom Search API Example</title>
-  </head>
-  <body>
-    <div id="content"></div>
-    <script>
-      function hndlr(response) {
-      for (var i = 0; i < response.items.length; i++) {
-        var item = response.items[i];
-        // in production code, item.htmlTitle should have the HTML entities escaped.
-        document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
-      }
-    }
-    </script>
-    <script src="https://www.googleapis.com/customsearch/v1?key=&cx=2b47b5c86db0b99d5:omuauf_lfve&q=cars&callback=hndlr">
-    </script>
-  </body>
-</html> -->
