@@ -16,33 +16,33 @@
   // onLoad
   $(document).ready(function() {
     $('#btnSearch').show().click(function() {
-      Search($("#txtSearchTerm").val(), 0);
+      Search($('#txtSearchTerm').val(), 0);
     });
 
-    $("#btnSearch").keyup(function(event) {
+    $('#btnSearch').keyup(function(event) {
       if (event.keyCode === 13) {
         this.click(function() {
-          Search($("#txtSearchTerm").val(), 0);
-          console.log("clicked");
+          Search($('#txtSearchTerm').val(), 0);
+          console.log('clicked');
         });
       }
     });
 
+    $('#txtSearchTerm').click(function(){
+ $('#output').empty();
+});
   }); // END onLoad
 
   // variables
-
-  // let tokenAPI = config.MY_API_TOKEN;
-  let keyAPI = config.SECRET_API_KEY;
-  // let tokenID = config.MY_SEARCH_ENGINE_ID_TOKEN;
+  let keyAPI = config.MY_SECRET_API_KEY;
   let keyID = config.MY_SEARCH_ENGINE_ID;
 
   function Search(term, direction) {
     url = `https://www.googleapis.com/customsearch/v1?key=${keyAPI}&cx=${keyID}&q=${term}`;
     $.getJSON(url, '', SearchCompleted);
-    $.getJSON(url, '', function(data) {
-      // console.log(data);
-    });
+    // $.getJSON(url, '', function(data) {
+    //   console.log(data);
+    // });
   } // END Search
 
   function SearchCompleted(response) {
@@ -62,11 +62,12 @@
 
     console.log(response);
   } // END SearchCompleted
+
 </script>
 
 
 <body>
-  
+
   <script async src="https://cse.google.com/cse.js?cx=2b47b5c86db0b99d5"></script>
 
   <section>
@@ -86,7 +87,7 @@
   <!-- JSON Example -->
   <div class="searchBox">
     <h2 class="subtitle">JSON API</h2>
-    <input type="text" id="txtSearchTerm" size="43" />
+    <input type="text" id="txtSearchTerm" onfocus="this.value=''" size="43" />
     <button id="btnSearch" style="display:none;">Start Search</button>
   </div>
 
