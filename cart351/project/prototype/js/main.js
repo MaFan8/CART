@@ -1,3 +1,4 @@
+let clock = new THREE.Clock();
 let scene, camera, renderer, cube, sphere;
 let meshFloor;
 
@@ -5,8 +6,11 @@ let keyboard = {};
 let viewer = {
   height: 2.5,
   speed: 0.2,
-  turnSpeed: Math.PI * 0.02
+  turnSpeed: Math.PI * 0.02,
+  angle: 0,
+  position: new THREE.Vector3(0,0,0)
 };
+
 let USE_WIREFRAME = true;
 
 init();
@@ -92,27 +96,38 @@ function init() {
 
 // ANIMATE
 function animate() {
-  requestAnimationFrame(animate);
 
-  let xSpeed = 0.0005;
-  let ySpeed = 0.0005;
+  delta = clock.getDelta();
 
-  document.addEventListener("keydown", onDocumentKeyDown, false);
+  let dir = new THREE.Vector3(1,0,0);
+  dir.multiplyScalar (delta*viewer.speed);	//dir *= dt*speed;
+	dir.applyAxisAngle (new THREE.Vector3(0,1,0), viewer.angle);
+	viewer.position.add (dir); 	//pos = pos + dir;
 
-  function onDocumentKeyDown(event) {
-    let keyCode = event.which;
-    if (keyCode == 38) {
-      cube.position.z += ySpeed;
-    } else if (keyCode == 40) {
-      cube.position.z -= ySpeed;
-    } else if (keyCode == 39) {
-      cube.position.x -= xSpeed;
-    } else if (keyCode == 37) {
-      cube.position.x += xSpeed;
-    } else if (keyCode == 8) {
-      cube.position.set(0, 0, 0);
-    }
-  };
+  
+
+
+  // requestAnimationFrame(animate);
+  //
+  // let xSpeed = 0.0005;
+  // let ySpeed = 0.0005;
+  //
+  // document.addEventListener("keydown", onDocumentKeyDown, false);
+  //
+  // function onDocumentKeyDown(event) {
+  //   let keyCode = event.which;
+  //   if (keyCode == 38) {
+  //     cube.position.z += ySpeed;
+  //   } else if (keyCode == 40) {
+  //     cube.position.z -= ySpeed;
+  //   } else if (keyCode == 39) {
+  //     cube.position.x -= xSpeed;
+  //   } else if (keyCode == 37) {
+  //     cube.position.x += xSpeed;
+  //   } else if (keyCode == 8) {
+  //     cube.position.set(0, 0, 0);
+  //   }
+  // };
 
   // if (cube != undefined) {
   //   cube.scale.set(0.2, 0.2, 0.2);
