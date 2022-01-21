@@ -10,56 +10,73 @@ $(document).ready(function(){
 }); // end ready function
 
 
+
+
 $(document).keydown(function(e) {
+  let kiwi = $(".kiwi");
+  let circle = $(".circle");
+
+
   switch(e.which) {
     case 37:    //left arrow key
-        $(".kiwi").finish().animate({
+        kiwi.finish().animate({
             left: "-=50"
         });
         break;
     case 38:    //up arrow key
-        $(".kiwi").finish().animate({
+        kiwi.finish().animate({
             top: "-=50"
         });
         break;
     case 39:    //right arrow key
-        $(".kiwi").finish().animate({
+        kiwi.finish().animate({
             left: "+=50"
         });
         break;
     case 40:    //bottom arrow key
-        $(".kiwi").finish().animate({
+        kiwi.finish().animate({
             top: "+=50"
         });
         break;
     }
 
+    // get kiwi + circle posiitons
+    let kiwiX = kiwi.offset().left;
+    let kiwiY = kiwi.offset().top;
+    let kiwiW = kiwi.outerWidth(true);
+    let kiwiH = kiwi.outerHeight(true);
+    let kiwiYPos = kiwiY + kiwiH;
+    let kiwiXPos = kiwiX + kiwiW;
+
+    let cirX = circle.offset().left;
+    let cirY = circle.offset().top;
+    let cirW = circle.outerWidth(true);
+    let cirH = circle.outerHeight(true);
+    let circleYPos = cirY + cirH;
+    let circleXPos = cirX + cirW;
+
+    // check collision
+    if (kiwiYPos < cirY || kiwiY > circleYPos || kiwiXPos < cirX || kiwiX > circleXPos) {
+    console.log("touched")
+    };
 }); // end keydown function
 
-function getPositions(kiwi) {
-  let $kiwi = $(kiwi);
-  let pos = $kiwi.position();
-  let width = $kiwi.width();
-  let height = $kiwi.height();
-  return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
-  console.log(pos);
-}
-
-function comparePositions(kiwi, circle) {
-  let x1 = kiwi[0] < circle[0] ? kiwi : circle;
-  let x2 = kiwi[0] < circle[0] ? circle : kiwi;
-  return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
-}
-
-function checkCollisions(){
-  let kiwi = $(".kiwi")[0];
-  let pos = getPositions(kiwi);
-
-  let pos2 = getPositions(this);
-  let horizontalMatch = comparePositions(pos[0], pos2[0]);
-  let verticalMatch = comparePositions(pos[1], pos2[1]);
-  let match = horizontalMatch && verticalMatch;
-  if (match) {
-  console.log("touch")
-};
-}
+// function collision(kiwi,circle) {
+//   let kiwiX = kiwi.offset().left;
+//   let kiwiY = kiwi.offset().top;
+//   let kiwiW = kiwi.outerWidth(true);
+//   let kiwiH = kiwi.outerHeight(true);
+//   let kiwiYPos = kiwiY + kiwiH;
+//   let kiwiXPos = kiwiX + kiwiW;
+//
+//   let cirX = circle.offset().left;
+//   let cirY = circle.offset().top;
+//   let cirW = circle.outerWidth(true);
+//   let cirH = circle.outerHeight(true);
+//   let circleYPos = cirY + cirH;
+//   let circleXPos = cirX + cirW;
+//
+//   if (kiwiYPos < cirY || kiwiY > circleYPos || kiwiXPos < cirX || kiwiX > circleXPos) {
+//   console.lot("touched")
+// };
+// }
