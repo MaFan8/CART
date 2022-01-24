@@ -60,7 +60,6 @@ $(document).keydown(function(e) {
 
     // check collision
     if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY < (cirY+cirH/2)) {
-    console.log("touched")
     form.show();
     };
 }); // end keydown function
