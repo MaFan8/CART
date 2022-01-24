@@ -66,9 +66,9 @@ $(document).keydown(function(e) {
 
 // when (x) is clicked, exit form
 let form = $('#modalForm');
-let span = $(".exit");
+let spanX = $(".exit");
 $(document).ready(function() {
-  span.on('click', function(){
+  spanX.on('click', function(){
     form.hide();
   });
 });
