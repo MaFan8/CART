@@ -59,16 +59,24 @@ $(document).keydown(function(e) {
     // console.log("kiwi");
 
     // check collision
-    if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY > (cirY+cirH/2)) {
+    if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY < (cirY+cirH/2)) {
     console.log("touched")
     form.show();
     };
 }); // end keydown function
 
-
+// when (x) is clicked, exit form
+let form = $('#modalForm');
 let span = $(".exit");
 $(document).ready(function() {
   span.on('click', function(){
-    modal.hide();
+    form.hide();
   });
 });
+
+// // when outside of form clicked, exit form
+// $('body').bind('click', function(e){
+//     if($(e.target).hasClass("modal")){
+//         form.hide();
+//     }
+// });
