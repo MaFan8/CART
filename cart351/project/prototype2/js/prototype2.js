@@ -11,7 +11,6 @@ $(document).ready(function(){
 
 
 
-
 $(document).keydown(function(e) {
   let kiwi = $(".kiwi");
   let circle = $(".circle");
@@ -20,22 +19,22 @@ $(document).keydown(function(e) {
   switch(e.which) {
     case 37:    //left arrow key
         kiwi.finish().animate({
-            left: "-=50"
+            left: "-=30"
         });
         break;
     case 38:    //up arrow key
         kiwi.finish().animate({
-            top: "-=50"
+            top: "-=30"
         });
         break;
     case 39:    //right arrow key
         kiwi.finish().animate({
-            left: "+=50"
+            left: "+=30"
         });
         break;
     case 40:    //bottom arrow key
         kiwi.finish().animate({
-            top: "+=50"
+            top: "+=30"
         });
         break;
     }
@@ -45,38 +44,21 @@ $(document).keydown(function(e) {
     let kiwiY = kiwi.offset().top;
     let kiwiW = kiwi.outerWidth(true);
     let kiwiH = kiwi.outerHeight(true);
-    let kiwiYPos = kiwiY + kiwiH;
+    // let kiwiYPos = kiwiY + kiwiH;
     let kiwiXPos = kiwiX + kiwiW;
 
     let cirX = circle.offset().left;
     let cirY = circle.offset().top;
     let cirW = circle.outerWidth(true);
     let cirH = circle.outerHeight(true);
-    let circleYPos = cirY + cirH;
+    // let circleYPos = cirY + cirH;
     let circleXPos = cirX + cirW;
 
+    // console.log(cirY);
+    // console.log("kiwi");
+
     // check collision
-    if (kiwiYPos < cirY || kiwiY > circleYPos || kiwiXPos < cirX || kiwiX > circleXPos) {
+    if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY > (cirY+cirH/2)) {
     console.log("touched")
     };
 }); // end keydown function
-
-// function collision(kiwi,circle) {
-//   let kiwiX = kiwi.offset().left;
-//   let kiwiY = kiwi.offset().top;
-//   let kiwiW = kiwi.outerWidth(true);
-//   let kiwiH = kiwi.outerHeight(true);
-//   let kiwiYPos = kiwiY + kiwiH;
-//   let kiwiXPos = kiwiX + kiwiW;
-//
-//   let cirX = circle.offset().left;
-//   let cirY = circle.offset().top;
-//   let cirW = circle.outerWidth(true);
-//   let cirH = circle.outerHeight(true);
-//   let circleYPos = cirY + cirH;
-//   let circleXPos = cirX + cirW;
-//
-//   if (kiwiYPos < cirY || kiwiY > circleYPos || kiwiXPos < cirX || kiwiX > circleXPos) {
-//   console.lot("touched")
-// };
-// }
