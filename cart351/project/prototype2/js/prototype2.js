@@ -14,6 +14,7 @@ $(document).ready(function(){
 $(document).keydown(function(e) {
   let kiwi = $(".kiwi");
   let circle = $(".circle");
+  let form = $('#modalForm');
 
 
   switch(e.which) {
@@ -60,5 +61,14 @@ $(document).keydown(function(e) {
     // check collision
     if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY > (cirY+cirH/2)) {
     console.log("touched")
+    form.show();
     };
 }); // end keydown function
+
+
+let span = $(".exit");
+$(document).ready(function() {
+  span.on('click', function(){
+    modal.hide();
+  });
+});

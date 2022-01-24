@@ -8,9 +8,9 @@
   <title>Project Prototype2</title>
 
   <link rel="stylesheet" type="text/css" href="css/prototype2.css">
-    <!-- scripts -->
+  <!-- scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/prototype2.js" ></script>
+  <script type="text/javascript" src="js/prototype2.js"></script>
 
 
 </head>
@@ -18,14 +18,19 @@
 <body>
 
   <canvas id="canvas" width="300" height="300"></canvas>
-  <img class="kiwi" src="http://s.cdpn.io/3/kiwi.svg"/>
+  <img class="kiwi" src="http://s.cdpn.io/3/kiwi.svg" />
   <svg class="circle" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="50"/>
-</svg>
+    <circle cx="50" cy="50" r="50" />
+  </svg>
 
-
-
-
+  <div id="modalForm" class="modal animate-top">
+    <div class="modal-header">
+      <h5 class="modal-title">Title</h5>
+      <button type="button" class="exit" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+  </div>
 
 
 
