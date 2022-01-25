@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   let canvas = document.querySelector("canvas");
 
@@ -17,58 +17,58 @@ $(document).keydown(function(e) {
   let form = $('#modalForm');
 
 
-  switch(e.which) {
-    case 37:    //left arrow key
-        kiwi.finish().animate({
-            left: "-=30"
-        });
-        break;
-    case 38:    //up arrow key
-        kiwi.finish().animate({
-            top: "-=30"
-        });
-        break;
-    case 39:    //right arrow key
-        kiwi.finish().animate({
-            left: "+=30"
-        });
-        break;
-    case 40:    //bottom arrow key
-        kiwi.finish().animate({
-            top: "+=30"
-        });
-        break;
-    }
+  switch (e.which) {
+    case 37: //left arrow key
+      kiwi.finish().animate({
+        left: "-=30"
+      });
+      break;
+    case 38: //up arrow key
+      kiwi.finish().animate({
+        top: "-=30"
+      });
+      break;
+    case 39: //right arrow key
+      kiwi.finish().animate({
+        left: "+=30"
+      });
+      break;
+    case 40: //bottom arrow key
+      kiwi.finish().animate({
+        top: "+=30"
+      });
+      break;
+  }
 
-    // get kiwi + circle posiitons
-    let kiwiX = kiwi.offset().left;
-    let kiwiY = kiwi.offset().top;
-    let kiwiW = kiwi.outerWidth(true);
-    let kiwiH = kiwi.outerHeight(true);
-    // let kiwiYPos = kiwiY + kiwiH;
-    let kiwiXPos = kiwiX + kiwiW;
+  // get kiwi + circle posiitons
+  let kiwiX = kiwi.offset().left;
+  let kiwiY = kiwi.offset().top;
+  let kiwiW = kiwi.outerWidth(true);
+  let kiwiH = kiwi.outerHeight(true);
+  // let kiwiYPos = kiwiY + kiwiH;
+  let kiwiXPos = kiwiX + kiwiW;
 
-    let cirX = circle.offset().left;
-    let cirY = circle.offset().top;
-    let cirW = circle.outerWidth(true);
-    let cirH = circle.outerHeight(true);
-    // let circleYPos = cirY + cirH;
-    let circleXPos = cirX + cirW;
+  let cirX = circle.offset().left;
+  let cirY = circle.offset().top;
+  let cirW = circle.outerWidth(true);
+  let cirH = circle.outerHeight(true);
+  // let circleYPos = cirY + cirH;
+  let circleXPos = cirX + cirW;
 
-    // console.log(cirY);
-    // console.log("kiwi");
+  // console.log(cirY);
+  // console.log("kiwi");
 
-    // check collision
-    if (kiwiXPos > (cirX-cirW/2) && kiwiX < circleXPos && (kiwiY+kiwiH) > cirY && kiwiY < (cirY+cirH/2)) {
+  // check collision
+  if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
     form.show();
-    };
+  };
 }); // end keydown function
 
 // when (x) is clicked, exit form
 let form = $('#modalForm');
 let spanX = $(".exit");
 $(document).ready(function() {
-  spanX.on('click', function(){
+  spanX.on('click', function() {
     form.hide();
   });
 });
@@ -79,3 +79,36 @@ $(document).ready(function() {
 //         form.hide();
 //     }
 // });
+
+$(document).ready(function() {
+  $("#contributeFrm").submit(function(event) {
+    // posting manually, PREVENT THE DEFAULT
+    event.preventDefault();
+    console.log("button clicked");
+
+    let form = $('#contributeFrm')[0];
+    let dataForSending = new FormData(form);
+
+    // for (let pair of dataForSending.entries()) {
+    //   console.log(pair[0]+ ', ' + pair[1]);
+    // }
+
+    // get the data
+    $.ajax({
+      type: "POST",
+      enctype: 'multipart/form-data',
+      url: '../contributeForm.php',
+      data: dataForSending,
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      success: function(response) {
+        console.log("we had success!");
+        console.log(response);
+      }
+    });
+
+
+  });
+});
