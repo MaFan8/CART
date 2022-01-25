@@ -60,7 +60,7 @@ html, body {
 @keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
 
 .modal {
-  /* display: none; */
+  display: none;
   position: absolute;
   z-index: 1;
   left: 0;
