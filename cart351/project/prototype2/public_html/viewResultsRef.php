@@ -12,7 +12,7 @@ try {
  require('openDB.php');
 
  // retrieving results examples: (**ALWAYS READ FROM RIGHT TO LEFT**)
- // $sql_select='SELECT * FROM Collection'; // from whole table
+ $sql_select='SELECT * FROM Collection'; // from whole table
  // $sql_select='SELECT * FROM Collection WHERE pieceID = 1'; // from spec. ID
  // $sql_2="SELECT * FROM Collection WHERE creationDate >=Date('2002-01-01')";
  // $sql_2="SELECT * FROM Collection WHERE creationDate >=Date('2002-01-01') AND artist = 'Sarah'"; // AND
@@ -30,11 +30,11 @@ try {
   // $sql_countA = "SELECT artist, COUNT(*) FROM Collection GROUP BY artist"; // count GROUP BY artists
   // $sql_countA = "SELECT geoLoc, COUNT(*) FROM Collection GROUP BY geoLoc";
   // $sql_countA = "SELECT artist, geoLoc, COUNT(*) FROM Collection GROUP BY artist,geoLoc"; // give number where artist and location are the same
-  $sql_countA = "SELECT artist, COUNT(*) FROM Collection WHERE artist ='Sarah' OR artist ='Harold' GROUP BY artist"; // **Read WHERE before GROUP BY**
+  // $sql_countA = "SELECT artist, COUNT(*) FROM Collection WHERE artist ='Sarah' OR artist ='Harold' GROUP BY artist"; // **Read WHERE before GROUP BY**
 
 
  // the result set
- $result = $file_db->query($sql_countA);
+ $result = $file_db->query($sql_select);
  if (!$result) die("Cannot execute query.");
 
  // // fetch first row ONLY...
