@@ -109,7 +109,7 @@ $(document).ready(function() {
       console.log(response);
 
         //reset the form
-      $('#insertGallery')[0].reset();
+      $('#contributeFrm')[0].reset();
     },
       error:function(){
       console.log("error occurred");

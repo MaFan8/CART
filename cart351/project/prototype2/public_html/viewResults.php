@@ -11,16 +11,12 @@
   try {
     require('openDB.php');
 
+
     $sql_select='SELECT * FROM Collection';
 
     // the result set
     $result = $file_db->query($sql_select);
     if (!$result) die("Cannot execute query.");
-
-    // // fetch first row ONLY...
-    //  $row = $result->fetch(PDO::FETCH_ASSOC);
-    //  // '$result' = table, 'FETCH_ASSOC' = include field names
-    //  var_dump($row);
 
     echo "<h3> Query Results:::</h3>";
     echo"<div id='back'>";
@@ -59,7 +55,7 @@
 
 
 
-  
+
 
    ?>
 

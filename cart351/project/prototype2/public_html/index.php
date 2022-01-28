@@ -39,7 +39,7 @@
                   </button>
               </div>
 
-              <form id="contributeFrm">
+              <form id="contributeFrm" action="" enctype ="multipart/form-data">
               <div class="modal-body">
                   <!-- Form submission status -->
                   <div class="response"></div>
@@ -54,8 +54,12 @@
                       <input type="email" name="email" id="email" class="form-control" placeholder="To update you." required="">
                   </div>
                   <div class="form-group">
+                      <label>Title:</label>
+                      <input type="text" name="title" id="title" class="form-control" placeholder="Name of your work.">
+                  </div>
+                  <div class="form-group">
                       <label>Your Work:</label>
-                      <textarea name="message" id="message" class="form-control" placeholder="Show me your work!" rows="6"></textarea>
+                      <textarea name="work_text" id="work_text" class="form-control" placeholder="Show me your work!" rows="6"></textarea>
                   </div>
               </div>
               <div class="modal-footer">
