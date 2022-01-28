@@ -88,34 +88,57 @@ $(document).ready(function() {
     console.log("button clicked");
 
     let form = $('#contributeFrm')[0];
-    let dataForSending = new FormData(form);
-
-    // for (let pair of dataForSending.entries()) {
-    //   console.log(pair[0]+ ', ' + pair[1]);
-    // }
+    let data = new FormData(form);
 
     // use AJAX method and post to server
     $.ajax({
-      type: "POST",
-      enctype: 'multipart/form-data',
-      url: '../contributeForm.php',
-      data: dataForSending,
-      processData: false,
-      contentType: false,
-      cache: false,
-      timeout: 600000,
-      success: function(response) {
-      console.log("we had success!");
-      console.log(response);
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "../contributeForm.php",
+            data: data,
+            processData: false,//prevents from converting into a query string
+            contentType: false, // want multi-form data
+            cache: false,
+            timeout: 600000,
+            success: function (response) {
+            //reponse is a STRING (not a JavaScript object -> so we need to convert)
+            console.log("we had success!");
+            console.log(response);
 
-        //reset the form
-      $('#contributeFrm')[0].reset();
-    },
-      error:function(){
-      console.log("error occurred");
-      }
-    });
+            //reset the form
+            $('#contributeFrm')[0].reset();
+           },
+           error:function(){
+          console.log("error occurred");
 
+        }
+    }); // END AJAX
+  }); // END SUBMIT
 
-  });
-});
+  // validate and process form here
+   function displayResponse(theResult){
+     let container = $('<div>').addClass("outer");
+     let title = $('<h3>');
+     $(title).text("Results from user");
+     $(title).appendTo(container);
+     let contentContainer = $('<div>').addClass("content");
+     for (let property in theResult) {
+       console.log(property);
+       if(property ==="filename"){
+         let img = $("<img>");
+         $(img).attr('src','images/'+theResult[property]);
+
+         $(img).appendTo(contentContainer);
+       }
+       else{
+         let para = $('<p>');
+         $(para).text(property+"::" +theResult[property]);
+           $(para).appendTo(contentContainer);
+       }
+
+     }
+     $(contentContainer).appendTo(container);
+     $(container).appendTo("#result");
+   }
+
+}); // END Ready
