@@ -26,50 +26,64 @@
     <circle cx="50" cy="50" r="50" />
   </svg>
 
+  <section class="containerSelection">
+    
+
+  </section>
 
 
-  <div class="container">
+
+  <section class="containerForm">
       <!-- The Modal -->
       <div id="modalForm" class="modal">
           <div class="modal-content animate-top">
-              <div class="modal-header">
+              <header class="modal-header">
                   <h5 class="modal-title">Contribution</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                   </button>
-              </div>
+              </header>
 
-              <form id="contributeFrm" action="" enctype ="multipart/form-data">
+              <form id="contributeFrm">
               <div class="modal-body">
                   <!-- Form submission status -->
                   <div class="response"></div>
 
                   <!-- Contact form -->
-                  <div class="form-group">
+                  <p class="form-group">
                       <label>Artist:</label>
                       <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name or alias." required="">
-                  </div>
-                  <div class="form-group">
+                  </p>
+
+                  <p class="form-group">
                       <label>Email:</label>
                       <input type="email" name="email" id="email" class="form-control" placeholder="To update you." required="">
-                  </div>
-                  <div class="form-group">
+                  </p>
+
+                  <p class="form-group">
                       <label>Title:</label>
                       <input type="text" name="title" id="title" class="form-control" placeholder="Name of your work.">
-                  </div>
-                  <div class="form-group">
+                  </p>
+
+                  <p class="form-group">
                       <label>Your Work:</label>
-                      <textarea name="work_text" id="work_text" class="form-control" placeholder="Show me your work!" rows="6"></textarea>
-                  </div>
+                      <textarea name="workText" id="workText" class="form-control" placeholder="Show me your work!" rows="6"></textarea>
+                  </p>
+
+                  <p class="form-group">
+                      <label>Upload Visual/Audio File:</label>
+                      <input type="file" name="filename" id="file" class="form-control" size=10/>
+                  </p>
               </div>
-              <div class="modal-footer">
+
+              <footer class="modal-footer">
                   <!-- Submit button -->
                   <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+              </footer>
               </form>
           </div>
       </div>
-  </div>
+  </section>
 
 
 </body>
