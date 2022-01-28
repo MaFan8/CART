@@ -1,5 +1,4 @@
 <?php
-echo phpinfo();
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@ echo phpinfo();
                   </div>
                   <div class="form-group">
                       <label>Email:</label>
-                      <input type="email" name="email" id="email" class="form-control" placeholder="To update you on any breakthroughs." required="">
+                      <input type="email" name="email" id="email" class="form-control" placeholder="To update you." required="">
                   </div>
                   <div class="form-group">
                       <label>Your Work:</label>
@@ -67,10 +66,6 @@ echo phpinfo();
           </div>
       </div>
   </div>
-
-
-
-
 
 
 </body>

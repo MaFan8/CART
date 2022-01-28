@@ -1,3 +1,4 @@
+// Ready function
 $(document).ready(function() {
 
   let canvas = document.querySelector("canvas");
@@ -7,16 +8,15 @@ $(document).ready(function() {
     canvas.setAttribute("height", window.innerHeight);
   });
 
-}); // end ready function
+}); // END ready function
 
-
-
+// Keydown function
 $(document).keydown(function(e) {
   let kiwi = $(".kiwi");
   let circle = $(".circle");
   let form = $('#modalForm');
 
-
+  // Switch
   switch (e.which) {
     case 37: //left arrow key
       kiwi.finish().animate({
@@ -38,7 +38,7 @@ $(document).keydown(function(e) {
         top: "+=30"
       });
       break;
-  }
+  } // END switch
 
   // get kiwi + circle posiitons
   let kiwiX = kiwi.offset().left;
@@ -62,7 +62,7 @@ $(document).keydown(function(e) {
   if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
     form.show();
   };
-}); // end keydown function
+}); // END keydown function
 
 // when (x) is clicked, exit form
 let form = $('#modalForm');
@@ -80,6 +80,7 @@ $(document).ready(function() {
 //     }
 // });
 
+
 $(document).ready(function() {
   $("#contributeFrm").submit(function(event) {
     // posting manually, PREVENT THE DEFAULT
@@ -93,7 +94,7 @@ $(document).ready(function() {
     //   console.log(pair[0]+ ', ' + pair[1]);
     // }
 
-    // get the data
+    // use AJAX method and post to server
     $.ajax({
       type: "POST",
       enctype: 'multipart/form-data',
@@ -104,8 +105,14 @@ $(document).ready(function() {
       cache: false,
       timeout: 600000,
       success: function(response) {
-        console.log("we had success!");
-        console.log(response);
+      console.log("we had success!");
+      console.log(response);
+
+        //reset the form
+      $('#insertGallery')[0].reset();
+    },
+      error:function(){
+      console.log("error occurred");
       }
     });
 
