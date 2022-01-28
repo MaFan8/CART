@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
   <title>Home</title>
-  <link rel="stylesheet" type='text/css' href='css/galleryStyle.css'>
+  <link rel="stylesheet" type='text/css' href='css/viewResults.css'>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
       foreach ($row as $key=>$entry)
       {
         //if the column name is not 'image'
-         if($key!="image")
+         if($key!="file")
          {
            // echo the key and entry
              echo "<p>".$key." :: ".$entry."</p>";
@@ -41,8 +41,8 @@
      // put image in last
        echo "</div>";
        // access by key
-       // $imagePath = $row["image"];
-       // echo "<img src = $imagePath \>";
+       $imagePath = $row["file"];
+       echo "<img src = $imagePath \>";
        echo "</div>";
    }//end while
    echo"</div>";
@@ -52,10 +52,6 @@
        // Print PDOException message
        echo $e->getMessage();
      }
-
-
-
-
 
    ?>
 
