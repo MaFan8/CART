@@ -2,7 +2,6 @@
  require('openDB.php');
 
  try{
-echo ("Collection table created successfully<br>");
    // Create Table
    $theQuery = "CREATE TABLE Collection (pieceID INTEGER PRIMARY KEY NOT NULL, artist TEXT, email TEXT, title TEXT, work TEXT)";
    // INTEGER PRIMARY KEY NOT NULL = pieceID has to be unique
