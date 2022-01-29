@@ -60,25 +60,26 @@ $(document).keydown(function(e) {
 
   // check collision
   if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
-    form.show();
+    
+    // form.show();
   };
 }); // END keydown function
 
 // when (x) is clicked, exit form
 let form = $('#modalForm');
-let spanX = $(".exit");
+let spanX = $(".close");
 $(document).ready(function() {
   spanX.on('click', function() {
     form.hide();
   });
 });
 
-// // when outside of form clicked, exit form
-// $('body').bind('click', function(e){
-//     if($(e.target).hasClass("modal")){
-//         form.hide();
-//     }
-// });
+// when outside of form clicked, exit form
+$('body').bind('click', function(e){
+    if($(e.target).hasClass("modal")){
+        form.hide();
+    }
+});
 
 
 $(document).ready(function() {

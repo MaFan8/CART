@@ -4,7 +4,7 @@ body {
 }
 
 canvas {
-  background: #96dad8;
+  background: #FB8073;
   width: 100%;
   height: 100%;
 }
@@ -35,8 +35,7 @@ html, body {
   width: 100px;
 }
 
-
-.container{
+.containerForm{
   padding: 20px;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -52,6 +51,90 @@ html, body {
   color: #969494;
 }
 
+/* Selection popup animations */
+.animate-bottom {
+  position:relative;
+  animation:animatebottom 0.5s;
+}
+@keyframes animatebottom{from{top:500px;opacity:0} to{top:0;opacity:1}}
+
+.animate-left {
+  position:relative;
+  animation:animateleft 0.7s;
+}
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+
+.animate-right {
+  position:relative;
+  animation:animateright 0.9s;
+}
+@keyframes animateright{from{left:500px;opacity:0} to{left:0;opacity:1}}
+
+
+.selection {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,.8);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+a {
+  margin: 10% 2% auto;
+  padding: 15px 30px;
+  width: 275px;
+  border-radius: .3rem;
+  outline: 0;
+  font-family: monospace;
+  text-decoration: none;
+}
+
+.selectTitle {
+  font-size: 1.75rem;
+}
+
+#contribute {
+  height: 250px;
+  background-color: #D1933F;
+  font-family: "Courier New", monospace;
+  color: #0D5785;
+}
+#play {
+  margin: 12% 2% auto;
+  height: 200px;
+  background-color: #A86E63;
+  color: #caffa8;
+  -webkit-text-stroke: 1.5px white;
+
+  /* border-top: 3px solid #478891; */
+}
+#exhibit {
+  height: 250px;
+  background-color: #46B09D;
+  font-family: "Courier New", monospace;
+  color: #5800ee;
+  /* -webkit-text-stroke: 1px white; */
+}
+li {
+  color: #ffffff;
+  padding: 5px 3px;
+}
+p {
+  font-size: 1rem;
+  color: #000000;
+  text-align: right;
+  bottom: 0;
+  right: 0;
+}
+
+
 /* Form */
 .animate-top{
   position:relative;
@@ -60,7 +143,7 @@ html, body {
 @keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
 
 .modal {
-  /* display: none; */
+  display: none;
   position: absolute;
   z-index: 1;
   left: 0;
@@ -82,6 +165,7 @@ html, body {
   outline: 0;
   font-family: monospace;
 }
+
 .modal-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -97,6 +181,7 @@ html, body {
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
 }
+
 .modal-title {
     margin-bottom: 0;
     line-height: 1.5;

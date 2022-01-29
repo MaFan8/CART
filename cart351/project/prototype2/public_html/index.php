@@ -26,14 +26,29 @@
     <circle cx="50" cy="50" r="50" />
   </svg>
 
-  <section class="containerSelection">
-    
-
+  <section class="selection">
+    <a href="#" id="contribute" class="animate-left">
+      <h2 class="selectTitle">i'll bite!</h2>
+      <li>shell out your work or idea.</li>
+      <li>pursue a creative interpretation.</li>
+      <li>concieve an art baby.</li>
+      <li>propose a collaboration.</li>
+    </a>
+    <a href="#" id="play" class="animate-bottom">
+      <h2 class="selectTitle">off I POP!!</h2>
+      <p><br>leave me alone!</p>
+      <p> I want to go back.</p>
+    </a>
+    <a href="#" id="exhibit" class="animate-right">
+      <h2 class="selectTitle">show me something...</h2>
+      <p><br><br><br>what's out there?</p>
+    </a>
   </section>
 
 
 
-  <section class="containerForm">
+
+  <section class="container">
       <!-- The Modal -->
       <div id="modalForm" class="modal">
           <div class="modal-content animate-top">
