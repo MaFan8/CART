@@ -63,13 +63,24 @@ $(document).keydown(function(e) {
 }); // END keydown function
 
   let menu = $('#menu');
+  let contribute = $('#contribute');
+  let play = $('#play');
+  let exhibit = $('#exhibit');
   let form = $('#modalForm');
   let spanX = $(".close");
 
-  // when <contribute> is clicked
-  $('#contribute').click(function() {
+  // when <contribute> is clicked, open form
+  contribute.click(function() {
     form.show();
     menu.toggle();
+  });
+  // when <play> is clicked, toggle
+  play.click(function() {
+    menu.toggle();
+  });
+  // when <exhitib> is clicked, open random input in collection
+  exhibit.click(function() {
+
   });
 
   // when (x) is clicked, exit form
