@@ -108,8 +108,9 @@ $('body').bind('click', function(e){
             console.log("we had success!");
             console.log(response);
 
-            //reset the form
-            $('#contributeFrm')[0].hide();
+            //reset the form + close
+             $('#contributeFrm')[0].reset();
+            $('#modalForm').toggle();
            },
 
            error:function(){
