@@ -25,6 +25,7 @@
     <circle cx="50" cy="50" r="50" />
   </svg>
 
+  <!-- Menu Popup -->
   <section id="menu">
     <article id="contribute" class="animate-left">
       <h2 class="selectTitle">i'll bite!</h2>
@@ -48,9 +49,7 @@
     </article>
   </section>
 
-
-
-
+  <!-- Form popup -->
   <section class="container">
       <!-- The Modal -->
       <div id="modalForm" class="modal">
@@ -101,6 +100,14 @@
               </form>
           </div>
       </div>
+  </section>
+
+  <!-- Entry Popup -->
+  <section id="entry">
+    <article id="original">
+      <h2 class="entryTitle">entry</h2>
+    </article>
+
   </section>
 
 

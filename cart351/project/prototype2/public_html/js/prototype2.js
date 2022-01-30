@@ -157,4 +157,7 @@ $('body').bind('click', function(e){
      $(container).appendTo("#result");
    }
 
+   // retrieve from collection
+   $('#entry')
+
 }); // END Ready
