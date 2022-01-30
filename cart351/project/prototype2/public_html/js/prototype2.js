@@ -8,12 +8,11 @@ $(document).ready(function() {
     canvas.setAttribute("height", window.innerHeight);
   });
 
-}); // END ready function
-
 // Keydown function
 $(document).keydown(function(e) {
   let kiwi = $(".kiwi");
   let circle = $(".circle");
+  let menu = $('#menu');
   let form = $('#modalForm');
 
   // Switch
@@ -60,19 +59,19 @@ $(document).keydown(function(e) {
 
   // check collision
   if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
-    
-    // form.show();
+    menu.css('display','flex');
   };
 }); // END keydown function
 
-// when (x) is clicked, exit form
-let form = $('#modalForm');
-let spanX = $(".close");
-$(document).ready(function() {
+  
+
+  // when (x) is clicked, exit form
+  let spanX = $(".close");
+
   spanX.on('click', function() {
     form.hide();
   });
-});
+
 
 // when outside of form clicked, exit form
 $('body').bind('click', function(e){
@@ -81,8 +80,6 @@ $('body').bind('click', function(e){
     }
 });
 
-
-$(document).ready(function() {
   $("#contributeFrm").submit(function(event) {
     // posting manually, PREVENT THE DEFAULT
     event.preventDefault();
@@ -107,8 +104,9 @@ $(document).ready(function() {
             console.log(response);
 
             //reset the form
-            $('#contributeFrm')[0].reset();
+            $('#contributeFrm')[0].hide();
            },
+
            error:function(){
           console.log("error occurred");
 

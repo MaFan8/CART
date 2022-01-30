@@ -26,13 +26,17 @@
     <circle cx="50" cy="50" r="50" />
   </svg>
 
-  <section class="selection">
+  <section id="menu">
     <a href="#" id="contribute" class="animate-left">
       <h2 class="selectTitle">i'll bite!</h2>
-      <li>shell out your work or idea.</li>
-      <li>pursue a creative interpretation.</li>
-      <li>concieve an art baby.</li>
-      <li>propose a collaboration.</li>
+      <li>shell out your work or idea</li>
+      <li style="font-size:14px">pursue a creative interpretation</li>
+      <li style="font-size:13px">concieve an art baby</li>
+      <li style="font-size:12px">propose a collaboration</li>
+      <li style="font-size:11px">perform a riff</li>
+      <li style="font-size:10px">invent 'Beam me up' machine</li>
+      <li style="font-size:8px">write a short story on the life and times of duck tape</li>
+      <li style="font-size:6px">present a failed project</li>
     </a>
     <a href="#" id="play" class="animate-bottom">
       <h2 class="selectTitle">off I POP!!</h2>

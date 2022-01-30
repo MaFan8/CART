@@ -13,8 +13,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    if($_FILES)
     {
-      // echo "file name: ".$_FILES['filename']['name'] . "<br />";
-      // echo "path to file uploaded: ".$_FILES['filename']['tmp_name']. "<br />";
      $fname = $_FILES['filename']['name'];
      move_uploaded_file($_FILES['filename']['tmp_name'], "images/".$fname);
       //echo "done";
@@ -37,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
        // build insert into statment
        $queryInsert ="INSERT INTO Collection(artist, email, title, work, file)VALUES ($artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
-       // $queryInsert ="INSERT INTO Collection(artist, title, creationDate, geoLoc, descript,ran_num)VALUES ($artist_es,$title_es,$loc_es,$description_es,$creationDate_es,'$rnNum')";
 
        $file_db->exec($queryInsert);
        $file_db = null;
