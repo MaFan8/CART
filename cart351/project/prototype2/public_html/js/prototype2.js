@@ -13,7 +13,6 @@ $(document).keydown(function(e) {
   let kiwi = $(".kiwi");
   let circle = $(".circle");
   let menu = $('#menu');
-  let form = $('#modalForm');
 
   // Switch
   switch (e.which) {
@@ -63,11 +62,17 @@ $(document).keydown(function(e) {
   };
 }); // END keydown function
 
-  
-
-  // when (x) is clicked, exit form
+  let menu = $('#menu');
+  let form = $('#modalForm');
   let spanX = $(".close");
 
+  // when <contribute> is clicked
+  $('#contribute').click(function() {
+    form.show();
+    menu.toggle();
+  });
+
+  // when (x) is clicked, exit form
   spanX.on('click', function() {
     form.hide();
   });
