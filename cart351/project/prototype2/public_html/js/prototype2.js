@@ -66,6 +66,7 @@ $(document).keydown(function(e) {
   let contribute = $('#contribute');
   let play = $('#play');
   let exhibit = $('#exhibit');
+  let showEntry = $('#entry');
   let form = $('#modalForm');
   let spanX = $(".close");
 
@@ -80,7 +81,7 @@ $(document).keydown(function(e) {
   });
   // when <exhitib> is clicked, open random input in collection
   exhibit.click(function() {
-
+    showEntry.show();
   });
 
   // when (x) is clicked, exit form
@@ -131,33 +132,41 @@ $('body').bind('click', function(e){
     }); // END AJAX
   }); // END SUBMIT
 
-  // validate and process form here
-   function displayResponse(theResult){
-     let container = $('<div>').addClass("outer");
-     let title = $('<h3>');
-     $(title).text("Results from user");
-     $(title).appendTo(container);
-     let contentContainer = $('<div>').addClass("content");
-     for (let property in theResult) {
-       console.log(property);
-       if(property ==="filename"){
-         let img = $("<img>");
-         $(img).attr('src','images/'+theResult[property]);
 
-         $(img).appendTo(contentContainer);
-       }
-       else{
-         let para = $('<p>');
-         $(para).text(property+"::" +theResult[property]);
-           $(para).appendTo(contentContainer);
-       }
+   // get from collection
+   // let selEntry = $('#entry');
+   // $.get("../retrieveSubmission.php", {"onload": selEntry}, function(response) {
+   //   console.log(response);
+   // });
+   $.get("../retrieveSubmission.php", {"onload": 'Collection'}, function(response) {
+     console.log(response);
+   });
 
-     }
-     $(contentContainer).appendTo(container);
-     $(container).appendTo("#result");
-   }
+   // // validate and process form here
+   //  function displayResponse(theResult){
+   //    let container = $('<div>').addClass("outer");
+   //    let title = $('<h3>');
+   //    $(title).text("Results from user");
+   //    $(title).appendTo(container);
+   //    let contentContainer = $('<div>').addClass("content");
+   //    for (let property in theResult) {
+   //      console.log(property);
+   //      if(property ==="filename"){
+   //        let img = $("<img>");
+   //        $(img).attr('src','images/'+theResult[property]);
+   //
+   //        $(img).appendTo(contentContainer);
+   //      }
+   //      else{
+   //        let para = $('<p>');
+   //        $(para).text(property+"::" +theResult[property]);
+   //          $(para).appendTo(contentContainer);
+   //      }
+   //
+   //    }
+   //    $(contentContainer).appendTo(container);
+   //    $(container).appendTo("#result");
+   //  }
 
-   // retrieve from collection
-   $('#entry')
 
 }); // END Ready

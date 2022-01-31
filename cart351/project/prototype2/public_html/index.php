@@ -105,7 +105,7 @@
   <!-- Entry Popup -->
   <section id="entry">
     <article id="original">
-      <h2 class="entryTitle">entry</h2>
+      <header class="entryNum">entry</header>
     </article>
 
   </section>
