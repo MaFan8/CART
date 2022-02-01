@@ -1,27 +1,24 @@
 <?php
 require('openDB.php');
 
-if ($SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
 
   try {
-    $sql_select='SELECT * FROM Collection';
-    // $sql_select='SELECT row FROM Collection ORDER BY RAND() LIMIT 1';
 
-    // var_dump($_GET)["onload"];
-    // echo($_POST["row"]);
-    // // the result set
+    // $sql_select='SELECT * FROM Collection';
+ $sql_select='SELECT pieceID FROM Collection ORDER BY RANDOM() LIMIT 1';
+
+    // the result set
     $result = $file_db->query($sql_select);
     if (!$result) die("Cannot execute query.");
+    // var_dump($result);
 
-
-    // // get a rows
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    echo "<div id='article'>";
-    } // end while
-
-
+    while($artist = $result->fetch(PDO::FETCH_ASSOC)) {
+      var_dump($artist);
+    }//end while
 
   } //end try
+
     catch(PDOException $e) {
       // Print PDOException message
       echo $e->getMessage();

@@ -133,11 +133,6 @@ $('body').bind('click', function(e){
   }); // END SUBMIT
 
 
-   // get from collection
-   // let selEntry = $('#entry');
-   // $.get("../retrieveSubmission.php", {"onload": selEntry}, function(response) {
-   //   console.log(response);
-   // });
    $.get("../retrieveSubmission.php", {"onload": 'Collection'}, function(response) {
      console.log(response);
    });
