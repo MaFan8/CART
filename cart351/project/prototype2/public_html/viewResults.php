@@ -17,6 +17,7 @@
     // the result set
     $result = $file_db->query($sql_select);
     if (!$result) die("Cannot execute query.");
+    var_dump($result);
 
     echo "<h3> Query Results:::</h3>";
     echo"<div id='back'>";

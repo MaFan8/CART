@@ -132,36 +132,17 @@ $('body').bind('click', function(e){
     }); // END AJAX
   }); // END SUBMIT
 
-
-   $.get("../retrieveSubmission.php", {"onload": 'Collection'}, function(response) {
+  // Get entries from database to display
+   $.get("../retrieveSubmission.php", {"onload": 'pieceID'}, function(response) {
      console.log(response);
-   });
 
-   // // validate and process form here
-   //  function displayResponse(theResult){
-   //    let container = $('<div>').addClass("outer");
-   //    let title = $('<h3>');
-   //    $(title).text("Results from user");
-   //    $(title).appendTo(container);
-   //    let contentContainer = $('<div>').addClass("content");
-   //    for (let property in theResult) {
-   //      console.log(property);
-   //      if(property ==="filename"){
-   //        let img = $("<img>");
-   //        $(img).attr('src','images/'+theResult[property]);
-   //
-   //        $(img).appendTo(contentContainer);
-   //      }
-   //      else{
-   //        let para = $('<p>');
-   //        $(para).text(property+"::" +theResult[property]);
-   //          $(para).appendTo(contentContainer);
-   //      }
-   //
-   //    }
-   //    $(contentContainer).appendTo(container);
-   //    $(container).appendTo("#result");
-   //  }
+     $('#original').empty();
+     let entryNumber = $("<header>");
+     $(entryNumber).text("entry: #"+response);
+     $(entryNumber).appendTo('#original');
+
+   }); // END GET
+
 
 
 }); // END Ready
