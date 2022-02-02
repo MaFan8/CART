@@ -106,7 +106,7 @@
   <section id="entry">
     <article id="original">
       <!-- <header class="entryNum">entry</header> -->
-    </article>
+    <!-- </article> -->
 
   </section>
 

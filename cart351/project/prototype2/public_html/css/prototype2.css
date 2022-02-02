@@ -343,6 +343,7 @@ label {
   background-color: #000000;
   /* display: none; */
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -351,4 +352,5 @@ label {
     background-color: #E3FBFE;
     font-family: "Courier New", monospace;
     color: #0D5785;
+    display: block;
 }

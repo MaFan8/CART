@@ -8,59 +8,59 @@ $(document).ready(function() {
     canvas.setAttribute("height", window.innerHeight);
   });
 
-// Keydown function
-$(document).keydown(function(e) {
-  let kiwi = $(".kiwi");
-  let circle = $(".circle");
-  let menu = $('#menu');
+  // Keydown function
+  $(document).keydown(function(e) {
+    let kiwi = $(".kiwi");
+    let circle = $(".circle");
+    let menu = $('#menu');
 
-  // Switch
-  switch (e.which) {
-    case 37: //left arrow key
-      kiwi.finish().animate({
-        left: "-=30"
-      });
-      break;
-    case 38: //up arrow key
-      kiwi.finish().animate({
-        top: "-=30"
-      });
-      break;
-    case 39: //right arrow key
-      kiwi.finish().animate({
-        left: "+=30"
-      });
-      break;
-    case 40: //bottom arrow key
-      kiwi.finish().animate({
-        top: "+=30"
-      });
-      break;
-  } // END switch
+    // Switch
+    switch (e.which) {
+      case 37: //left arrow key
+        kiwi.finish().animate({
+          left: "-=30"
+        });
+        break;
+      case 38: //up arrow key
+        kiwi.finish().animate({
+          top: "-=30"
+        });
+        break;
+      case 39: //right arrow key
+        kiwi.finish().animate({
+          left: "+=30"
+        });
+        break;
+      case 40: //bottom arrow key
+        kiwi.finish().animate({
+          top: "+=30"
+        });
+        break;
+    } // END switch
 
-  // get kiwi + circle posiitons
-  let kiwiX = kiwi.offset().left;
-  let kiwiY = kiwi.offset().top;
-  let kiwiW = kiwi.outerWidth(true);
-  let kiwiH = kiwi.outerHeight(true);
-  // let kiwiYPos = kiwiY + kiwiH;
-  let kiwiXPos = kiwiX + kiwiW;
+    // get kiwi + circle posiitons
+    let kiwiX = kiwi.offset().left;
+    let kiwiY = kiwi.offset().top;
+    let kiwiW = kiwi.outerWidth(true);
+    let kiwiH = kiwi.outerHeight(true);
+    // let kiwiYPos = kiwiY + kiwiH;
+    let kiwiXPos = kiwiX + kiwiW;
 
-  let cirX = circle.offset().left;
-  let cirY = circle.offset().top;
-  let cirW = circle.outerWidth(true);
-  let cirH = circle.outerHeight(true);
-  // let circleYPos = cirY + cirH;
-  let circleXPos = cirX + cirW;
+    let cirX = circle.offset().left;
+    let cirY = circle.offset().top;
+    let cirW = circle.outerWidth(true);
+    let cirH = circle.outerHeight(true);
+    // let circleYPos = cirY + cirH;
+    let circleXPos = cirX + cirW;
 
-  // console.log(cirY);
-  // console.log("kiwi");
+    // console.log(cirY);
+    // console.log("kiwi");
 
-  // check collision
-  if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
-    menu.css('display','flex');
-  };
-}); // END keydown function
+    // check collision
+    if (kiwiXPos > (cirX - cirW / 2) && kiwiX < circleXPos && (kiwiY + kiwiH) > cirY && kiwiY < (cirY + cirH / 2)) {
+      menu.css('display', 'flex');
+    };
+  }); // END keydown function
 
   let menu = $('#menu');
   let contribute = $('#contribute');
@@ -90,12 +90,12 @@ $(document).keydown(function(e) {
   });
 
 
-// when outside of form clicked, exit form
-$('body').bind('click', function(e){
-    if($(e.target).hasClass("modal")){
-        form.hide();
+  // when outside of form clicked, exit form
+  $('body').bind('click', function(e) {
+    if ($(e.target).hasClass("modal")) {
+      form.hide();
     }
-});
+  });
 
   $("#contributeFrm").submit(function(event) {
     // posting manually, PREVENT THE DEFAULT
@@ -107,41 +107,66 @@ $('body').bind('click', function(e){
 
     // use AJAX method and post to server
     $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "../contributeForm.php",
-            data: data,
-            processData: false,//prevents from converting into a query string
-            contentType: false, // want multi-form data
-            cache: false,
-            timeout: 600000,
-            success: function (response) {
-            //reponse is a STRING (not a JavaScript object -> so we need to convert)
-            console.log("we had success!");
-            console.log(response);
+      type: "POST",
+      enctype: 'multipart/form-data',
+      url: "../contributeForm.php",
+      data: data,
+      processData: false, //prevents from converting into a query string
+      contentType: false, // want multi-form data
+      cache: false,
+      timeout: 600000,
+      success: function(response) {
+        //reponse is a STRING (not a JavaScript object -> so we need to convert)
+        console.log("we had success!");
+        console.log(response);
 
-            //reset the form + close
-             $('#contributeFrm')[0].reset();
-            $('#modalForm').toggle();
-           },
+        //reset the form + close
+        $('#contributeFrm')[0].reset();
+        $('#modalForm').toggle();
+      },
 
-           error:function(){
-          console.log("error occurred");
+      error: function() {
+        console.log("error occurred");
 
-        }
+      }
     }); // END AJAX
   }); // END SUBMIT
 
   // Get entries from database to display
-   $.get("../retrieveSubmission.php", {"onload": 'pieceID'}, function(response) {
-     console.log(response);
+  $.get("../retrieveSubmission.php", {
+    "onload": 'row'
+  }, function(response) {
+    console.log(response);
 
-     $('#original').empty();
-     let entryNumber = $("<header>");
-     $(entryNumber).text("entry: #"+response);
-     $(entryNumber).appendTo('#original');
+    // case 1 & 2
+    $('#original').empty();
+    let entryNumber = $("<header>");
+    $(entryNumber).text("entry: #"+response);
+    $(entryNumber).appendTo('#original');
 
-   }); // END GET
+
+    // displayResponse(response); // case 3
+
+  }); // END GET
+
+  // // case 3
+  // function displayResponse(response) {
+  //   for (let i = 0; i < response.length; i++) {
+  //     let currentObject = response[i];
+  //     for (let property in response) {
+  //       if (property === "file") {
+  //         let img = $("<img>");
+  //         $(img).attr('src', currentObject[property]);
+  //         $(img).appendTo('#original');
+  //       } else {
+  //         let para = $('<p>');
+  //         $(para).text(property + "::" + currentObject[property]);
+  //         $(para).appendTo('#original');
+  //       }
+  //     }
+  //   }
+  // }; // END displayResponse
+
 
 
 
