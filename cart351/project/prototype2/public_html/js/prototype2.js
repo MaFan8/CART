@@ -133,41 +133,25 @@ $(document).ready(function() {
   }); // END SUBMIT
 
   // Get entries from database to display
-  $.get("../retrieveSubmission.php", {
-    "onload": 'row'
-  }, function(response) {
-    console.log(response);
+  $.get("../retrieveSubmission.php", {"onload": 'row'}, function(response) {
     let jsResult = JSON.parse(response);
     console.log(jsResult);
 
-    // case 1 & 2
-    $('#original').empty();
-    let entryNumber = $("<header>");
-    $(entryNumber).text("entry: #"+response);
-    $(entryNumber).appendTo('#original');
+    let  idKey = jsResult['pieceID'];
+
+    let content = $('<header>');
+    $(content).append("entry #" + idKey);
+    $(content).appendTo("#original");
+
+    // for (let i=0; i<jsResult.length; i++) {
+    //
+    // }
 
 
-    // displayResponse(response); // case 3
+
+
 
   }); // END GET
-
-  // // case 3
-  // function displayResponse(response) {
-  //   for (let i = 0; i < response.length; i++) {
-  //     let currentObject = response[i];
-  //     for (let property in response) {
-  //       if (property === "file") {
-  //         let img = $("<img>");
-  //         $(img).attr('src', currentObject[property]);
-  //         $(img).appendTo('#original');
-  //       } else {
-  //         let para = $('<p>');
-  //         $(para).text(property + "::" + currentObject[property]);
-  //         $(para).appendTo('#original');
-  //       }
-  //     }
-  //   }
-  // }; // END displayResponse
 
 
 
