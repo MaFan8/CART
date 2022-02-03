@@ -17,56 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
     // // get a row...
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
     // var_dump($row);
-
-    // case 1
-      foreach ($row as $key=>$entry)
-      {
-        // echo strval($entry);
-
-        // if the column name is not 'image'
-         if($key!="file")
-         {
-           // echo the key and entry
-             echo "<br>".$key." :: ".$entry."</br>";
-         }
-      }
-      // put image in last
-        echo "</div>";
-        // access by key
-        $imagePath = $row["file"];
-        echo "<img src = $imagePath \>";
-        echo "</div>";
-
-    // // case 2
-    //   if ($key!="file") {
-    //
-    //   $entryPath = $row['pieceID'];
-    //   $entryArtist = $row['artist'];
-    //   $entryTitle = $row['title'];
-    //   $entryWork = $row['work'];
-    //   $entryFile = $row['file'];
-    //
-    //   echo ($entryPath);
-    //   echo "<br>title: $entryTitle</br>";
-    //   echo "<br>by: $entryArtist</br>";
-    //   echo "<br>work: $entryWork</br>";
-    //   echo "<br>$entryFile</br>";
-    // }
-
+    echo(json_encode($row));
     }//end while
-
-    // // case 3
-    // $res = array();
-    // $i=0;
-    // // // get a row...
-    // while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    //   $res[$i] = $row;
-    //   $i++;
-    //   var_dump ($res);
-    // }
-
-
-
 
   } //end try
 

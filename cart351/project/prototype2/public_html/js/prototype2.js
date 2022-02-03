@@ -137,6 +137,8 @@ $(document).ready(function() {
     "onload": 'row'
   }, function(response) {
     console.log(response);
+    let jsResult = JSON.parse(response);
+    console.log(jsResult);
 
     // case 1 & 2
     $('#original').empty();
