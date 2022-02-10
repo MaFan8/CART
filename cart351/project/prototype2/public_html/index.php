@@ -50,7 +50,7 @@
   </section>
 
   <!-- Form popup -->
-  <section class="container">
+  <section id="form">
       <!-- The Modal -->
       <div id="modalForm" class="modal">
           <div class="modal-content animate-top">
@@ -104,7 +104,9 @@
 
   <!-- Entry Popup -->
   <section id="entry">
-    <article id="original"></article>
+    <article id="original">
+      <button class="btnAdd">i have something to add</button>
+    </article>
 
   </section>
 

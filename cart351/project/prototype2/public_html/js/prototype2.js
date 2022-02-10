@@ -81,12 +81,19 @@ $(document).ready(function() {
   });
   // when <exhitib> is clicked, open random input in collection
   exhibit.click(function() {
-    showEntry.show();
+    showEntry.css('display', 'flex');
+    menu.toggle();
   });
 
   // when (x) is clicked, exit form
   spanX.on('click', function() {
     form.hide();
+  });
+
+  // when contribute button is clicked, append form beside original entry
+  $(".btnAdd").on('click', function() {
+    form.css('position', 'static');
+    showEntry.append(form.show());
   });
 
 
@@ -162,7 +169,7 @@ $(document).ready(function() {
     } else {
       $(id).addClass("idNum").append("entry #" + keyID);
       $(title).addClass("entryTitle").append(keyTitle);
-      $(name).addClass("entryName").append(keyName);
+      $(name).addClass("entryName").append("by_  " + keyName);
       $(text).addClass("entryText").append(keyWork);
     }
     $(id).appendTo("#original");
@@ -176,6 +183,7 @@ $(document).ready(function() {
       $(img).appendTo("#original");
     }
   }
+
 
 
 
