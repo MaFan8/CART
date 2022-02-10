@@ -40,12 +40,12 @@
     </article>
     <article id="play" class="animate-bottom">
       <h2 class="selectTitle">off I POP!!</h2>
-      <p><br>leave me alone!</p>
-      <p> I want to go back.</p>
+      <p style ="text-align:right"><br>leave me alone!</p>
+      <p style ="text-align:right"> I want to go back.</p>
     </article>
     <article id="exhibit" class="animate-right">
       <h2 class="selectTitle">show me something...</h2>
-      <p><br><br><br>what's out there?</p>
+      <p style ="text-align:right"><br><br><br>what's out there?</p>
     </article>
   </section>
 
@@ -74,7 +74,7 @@
 
                   <p class="form-group">
                       <label>Email:</label>
-                      <input type="email" name="email" id="email" class="form-control" placeholder="To update you." required="">
+                      <input type="email" name="email" id="email" class="form-control" placeholder="To update you.">
                   </p>
 
                   <p class="form-group">
@@ -104,10 +104,7 @@
 
   <!-- Entry Popup -->
   <section id="entry">
-    <article id="original">
-      <!-- <header class="entryNum"></header> -->
-      <!-- <h2 ></h2> -->
-    </article>
+    <article id="original"></article>
 
   </section>
 

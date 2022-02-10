@@ -137,19 +137,33 @@ $(document).ready(function() {
     let jsResult = JSON.parse(response);
     console.log(jsResult);
 
-    let  idKey = jsResult['pieceID'];
+    let keyID = jsResult['pieceID'];
+    let keyName = jsResult['artist'];
+    let keyTitle = jsResult['title'];
+    let keyWork = jsResult['work'];
+    let keyFile = jsResult['file'];
 
-    let content = $('<header>');
-    $(content).append("entry #" + idKey);
-    $(content).appendTo("#original");
+    let id = $('<p>');
+    $(id).addClass("idNum").append("entry #" + keyID);
+    $(id).appendTo("#original");
 
-    // for (let i=0; i<jsResult.length; i++) {
-    //
-    // }
+    
 
+    let title = $('<p>');
+    $(title).addClass("entryTitle").append(keyTitle);
+    $(title).appendTo("#original");
 
+    let name = $('<p>');
+    $(name).addClass("entryName").append(keyName);
+    $(name).appendTo("#original");
 
+    let text = $('<p>');
+    $(text).addClass("entryText").append(keyWork);
+    $(text).appendTo("#original");
 
+    let img = $("<img>");
+    $(img).addClass("entryFile").attr('src', keyFile);
+    $(img).appendTo("#original");
 
   }); // END GET
 
