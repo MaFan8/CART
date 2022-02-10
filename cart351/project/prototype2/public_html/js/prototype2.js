@@ -133,10 +133,18 @@ $(document).ready(function() {
   }); // END SUBMIT
 
   // Get entries from database to display
-  $.get("../retrieveSubmission.php", {"onload": 'row'}, function(response) {
+  $.get("../retrieveSubmission.php", {
+    "onload": 'row'
+  }, function(response) {
     let jsResult = JSON.parse(response);
     console.log(jsResult);
 
+    displayOriginalEntry(jsResult);
+
+
+  }); // END GET
+
+  function displayOriginalEntry(jsResult) {
     let keyID = jsResult['pieceID'];
     let keyName = jsResult['artist'];
     let keyTitle = jsResult['title'];
@@ -144,29 +152,30 @@ $(document).ready(function() {
     let keyFile = jsResult['file'];
 
     let id = $('<p>');
-    $(id).addClass("idNum").append("entry #" + keyID);
-    $(id).appendTo("#original");
-
-    
-
     let title = $('<p>');
-    $(title).addClass("entryTitle").append(keyTitle);
-    $(title).appendTo("#original");
-
     let name = $('<p>');
-    $(name).addClass("entryName").append(keyName);
-    $(name).appendTo("#original");
-
     let text = $('<p>');
-    $(text).addClass("entryText").append(keyWork);
+
+    if (keyTitle === "" || keyWork === "") {
+      $(id).addClass("idNum").append("entry #" + keyID);
+      $(title).addClass("entryTitle").css('color', 'grey').append("- - - - - -");
+    } else {
+      $(id).addClass("idNum").append("entry #" + keyID);
+      $(title).addClass("entryTitle").append(keyTitle);
+      $(name).addClass("entryName").append(keyName);
+      $(text).addClass("entryText").append(keyWork);
+    }
+    $(id).appendTo("#original");
+    $(title).appendTo("#original");
+    $(name).appendTo("#original");
     $(text).appendTo("#original");
 
     let img = $("<img>");
-    $(img).addClass("entryFile").attr('src', keyFile);
-    $(img).appendTo("#original");
-
-  }); // END GET
-
+    if (keyFile != "images/") {
+      $(img).addClass("entryFile").attr('src', keyFile);
+      $(img).appendTo("#original");
+    }
+  }
 
 
 
