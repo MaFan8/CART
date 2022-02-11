@@ -148,7 +148,6 @@ $(document).ready(function() {
 
     displayOriginalEntry(jsResult);
 
-
   }); // END GET
 
   function displayOriginalEntry(jsResult) {
@@ -182,7 +181,20 @@ $(document).ready(function() {
       $(img).addClass("entryFile").attr('src', keyFile);
       $(img).appendTo("#original");
     }
-  }
+
+    // post in current entry using ID
+    // $('.bntAdd').click(function() {
+    //   let currentID = keyID;
+    //
+    //   $.ajax({
+    //     type: "POST",
+    //     url: "../contributeForm.php",
+    //     data:
+    //   }); // END Ajax
+    // }); // END click function
+  }// END function displayOriginalEntry
+
+
 
 
 
