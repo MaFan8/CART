@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
     // $sql_select='SELECT * FROM Collection ORDER BY RANDOM() LIMIT 1';
     $sql_select='SELECT pieceID, entryID, artist, title, work, file FROM Collection ORDER BY RANDOM() LIMIT 1';
 
+
     // the result set
     $result = $file_db->query($sql_select);
     if (!$result) die("Cannot execute query.");
@@ -16,7 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
 
     // get a row...
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    var_dump($row["entryID"]);
+    // var_dump($row["entryID"]);
+    $current_entryID = $row["entryID"];
+    // $sql_select2 = 'SELECT * FROM Collection GROUP BY entryID HAVING '$current_entryID'';
+
+    
+
     // echo(json_encode($row));
     }//end while
 
