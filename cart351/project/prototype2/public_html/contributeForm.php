@@ -4,7 +4,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // var_dump($_POST);// ouput arrays
   // echo($_POST["email"]);
 
-
+  // $queryInsert = "CREATE TRIGGER generate before INSERT INTO ON $entryID FOR EACH ROW VALUES uniqid()";
 
   // need to process
    // $entryID = $_POST['entryID'];
@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
      try {
        // $entryID = uniqid([ string $prefix = "" [, bool $more_entropy = FALSE ]] );
-       
+
        // clean data first
        $entryID_es =$file_db->quote($entryID);
 

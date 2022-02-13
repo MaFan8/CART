@@ -65,7 +65,8 @@
               <div class="modal-body">
                   <!-- Form submission status -->
                   <div class="response"></div>
-                  
+
+                  <input type="hidden" name="entryID" id="entryID" value="">
                   <!-- Contact form -->
                   <p class="form-group">
                       <label>Artist:</label>
