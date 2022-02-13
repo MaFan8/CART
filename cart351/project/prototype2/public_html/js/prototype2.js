@@ -126,6 +126,7 @@ $(document).ready(function() {
         //reponse is a STRING (not a JavaScript object -> so we need to convert)
         console.log("we had success!");
         console.log(response);
+        
 
         //reset the form + close
         $('#contributeFrm')[0].reset();

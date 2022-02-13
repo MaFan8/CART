@@ -65,7 +65,7 @@
               <div class="modal-body">
                   <!-- Form submission status -->
                   <div class="response"></div>
-
+                  
                   <!-- Contact form -->
                   <p class="form-group">
                       <label>Artist:</label>

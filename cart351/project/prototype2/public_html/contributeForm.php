@@ -4,11 +4,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // var_dump($_POST);// ouput arrays
   // echo($_POST["email"]);
 
+
+
   // need to process
+   // $entryID = $_POST['entryID'];
+
    $artist = $_POST['name'];
    $email = $_POST['email'];
    $title = $_POST['title'];
-   // $loc = $_POST['a_geo_loc'];
    $workText = $_POST['workText'];
 
    if($_FILES)
@@ -24,17 +27,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
      require('openDB.php');
 
      try {
-
+       // $entryID = uniqid([ string $prefix = "" [, bool $more_entropy = FALSE ]] );
+       
        // clean data first
+       $entryID_es =$file_db->quote($entryID);
+
        $artist_es =$file_db->quote($artist);
        $email_es =$file_db->quote($email);
        $title_es = $file_db->quote($title);
        $workText_es =$file_db->quote($workText);
        $imageWithPath= "images/".$fname;
-       // $fname_es =$file_db->quote($file);
 
        // build insert into statment
        $queryInsert ="INSERT INTO Collection(artist, email, title, work, file)VALUES ($artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
+
+       // function generate_uniqueID($entryID =8) {
+       //   return substr(str_shuffle("0123456789"), 0, $entryID);
+       // }
+
+
 
        $file_db->exec($queryInsert);
        $file_db = null;

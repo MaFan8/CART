@@ -4,8 +4,7 @@
  try{
    // Create Table
    $theQuery = "CREATE TABLE Collection (
-     entryID int NOT NULL,
-     Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+     entryID INT(6) UNIQUE,
      artist TEXT,
      email TEXT,
      title TEXT,
@@ -13,6 +12,7 @@
      file TEXT,
      pieceID INTEGER PRIMARY KEY NOT NULL
    )";
+
 
    $file_db ->exec($theQuery); //'exec' when we are changing database
    // file_db = database object -> execute the table
