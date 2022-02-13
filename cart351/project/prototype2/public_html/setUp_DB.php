@@ -4,7 +4,7 @@
  try{
    // Create Table
    $theQuery = "CREATE TABLE Collection (
-     entryID INT,
+     entryID TEXT,
      artist TEXT,
      email TEXT,
      title TEXT,

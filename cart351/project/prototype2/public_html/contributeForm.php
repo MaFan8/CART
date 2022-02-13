@@ -4,11 +4,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   // var_dump($_POST);// ouput arrays
   // echo($_POST["email"]);
 
-  // $queryInsert = "CREATE TRIGGER generate before INSERT INTO ON $entryID FOR EACH ROW VALUES uniqid()";
-
   // need to process
-   // $entryID = $_POST['entryID'];
-
    $artist = $_POST['name'];
    $email = $_POST['email'];
    $title = $_POST['title'];
@@ -27,11 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
      require('openDB.php');
 
      try {
-       // $entryID = uniqid([ string $prefix = "" [, bool $more_entropy = FALSE ]] );
-
        // clean data first
-       $entryID_es =$file_db->quote($entryID);
-
+       //call the inbuilt:
+      //https://www.php.net/manual/en/function.uniqid.php
+       $entryID_es =$file_db->quote(uniqid());
        $artist_es =$file_db->quote($artist);
        $email_es =$file_db->quote($email);
        $title_es = $file_db->quote($title);
@@ -39,13 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        $imageWithPath= "images/".$fname;
 
        // build insert into statment
-       $queryInsert ="INSERT INTO Collection(artist, email, title, work, file)VALUES ($artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
-
-       // function generate_uniqueID($entryID =8) {
-       //   return substr(str_shuffle("0123456789"), 0, $entryID);
-       // }
-
-
+       $queryInsert ="INSERT INTO Collection(entryID, artist, email, title, work, file)VALUES ($entryID_es, $artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
 
        $file_db->exec($queryInsert);
        $file_db = null;

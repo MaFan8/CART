@@ -127,20 +127,6 @@ $(document).ready(function() {
         console.log("we had success!");
         console.log(response);
 
-        // generate random unique string and append to 'entryID'
-        let generate_ID = $('#entryID');
-        $(generate_ID).append(function() {
-          if (!generateRandom.prevNums) {
-            generateRandom.prevNums = {};
-          }
-          let random;
-          do {
-            random = Math.floor((Math.random() * (99999999 - 10000000 + 1)) + 10000000);
-          } while (generateRandom.prevNums[random])
-          generateRandom.prevNums[random] = true;
-          return (random.toString());
-        });
-
         //reset the form + close
         $('#contributeFrm')[0].reset();
         $('#modalForm').toggle();
