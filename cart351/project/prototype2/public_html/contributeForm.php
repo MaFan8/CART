@@ -10,6 +10,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
    $title = $_POST['title'];
    $workText = $_POST['workText'];
 
+   $queryInsert ="INSERT INTO Collection(entryID, artist, email, title)VALUES ('62087cde166d4', 'T2Name', 'T3@gmail.com', 'T3Title')";
+
    if($_FILES)
     {
      $fname = $_FILES['filename']['name'];
@@ -34,7 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        $imageWithPath= "images/".$fname;
 
        // build insert into statment
-       $queryInsert ="INSERT INTO Collection(entryID, artist, email, title, work, file)VALUES ($entryID_es, $artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
+       // $queryInsert ="INSERT INTO Collection(entryID, artist, email, title, work, file)VALUES ($entryID_es, $artist_es, $email_es, $title_es,$workText_es, '$imageWithPath')";
+
 
        $file_db->exec($queryInsert);
        $file_db = null;

@@ -143,10 +143,12 @@ $(document).ready(function() {
   $.get("../retrieveSubmission.php", {
     "onload": 'row'
   }, function(response) {
-    let jsResult = JSON.parse(response);
-    console.log(jsResult);
+    // let jsResult = JSON.parse(response);
+    // console.log(jsResult);
+    //
+    // displayOriginalEntry(jsResult);
 
-    displayOriginalEntry(jsResult);
+    console.log(response);
 
   }); // END GET
 
@@ -182,16 +184,7 @@ $(document).ready(function() {
       $(img).appendTo("#original");
     }
 
-    // post in current entry using ID
-    // $('.bntAdd').click(function() {
-    //   let currentID = keyID;
-    //
-    //   $.ajax({
-    //     type: "POST",
-    //     url: "../contributeForm.php",
-    //     data:
-    //   }); // END Ajax
-    // }); // END click function
+
   } // END function displayOriginalEntry
 
 

@@ -197,9 +197,9 @@ p {
 }
 
 .modal {
-  /* display: none; */
+  display: none;
   position: absolute;
-  display: flex;
+  /* display: flex; */
   flex-flow: row wrap;
   justify-content: center;
   z-index: 1;
@@ -416,8 +416,8 @@ label {
   top: 0;
   overflow: auto;
   background-color: #000000;
-  display: none;
-  /* display: flex; */
+  /* display: none; */
+  display: flex;
   justify-content: center;
 }
 
