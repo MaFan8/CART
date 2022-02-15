@@ -141,14 +141,13 @@ $(document).ready(function() {
 
   // Get entries from database to display
   $.get("../retrieveSubmission.php", {
-    "onload": 'row'
+    "onload": "row"
   }, function(response) {
-    // let jsResult = JSON.parse(response);
-    // console.log(jsResult);
-    //
-    // displayOriginalEntry(jsResult);
+    // console.log(response);
+    let jsResult = JSON.parse(response);
+    console.log(jsResult);
 
-    console.log(response);
+    // displayOriginalEntry(jsResult);
 
   }); // END GET
 

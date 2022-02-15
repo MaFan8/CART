@@ -7,24 +7,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
 
     // $sql_select='SELECT * FROM Collection';
     // $sql_select='SELECT * FROM Collection ORDER BY RANDOM() LIMIT 1';
-    $sql_select='SELECT pieceID, entryID, artist, title, work, file FROM Collection ORDER BY RANDOM() LIMIT 1';
+    // $sql_select='SELECT pieceID, entryID, artist, title, work, file FROM Collection ORDER BY RANDOM() LIMIT 1';
 
+    // select a random row with entryID
+    $uniqueEntryQuery = 'SELECT DISTINCT entryID FROM Collection ORDER BY RANDOM() LIMIT 1';
 
     // the result set
-    $result = $file_db->query($sql_select);
-    if (!$result) die("Cannot execute query.");
-    // var_dump($result);
+    $resEntry = $file_db->query($uniqueEntryQuery);
+    if (!$resEntry) die("Cannot execute query.");
+    // var_dump($resEntry);
 
-    // get a row...
-    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    // var_dump($row["entryID"]);
-    $current_entryID = $row["entryID"];
-    // $sql_select2 = 'SELECT * FROM Collection GROUP BY entryID HAVING '$current_entryID'';
+    $row = $resEntry->fetch(PDO::FETCH_ASSOC);
+    $chosenEntryId = $row['entryID'];
+    // echo($chosenEntryId);
+    //select where entryID is the same
+    $entriesWithId = "SELECT pieceID, artist, title, work, file FROM Collection WHERE entryID = '$chosenEntryId'";
 
-    
+    $resTwo = $file_db->query($entriesWithId);
+    if (!$resTwo) die("Cannot execute query.");
 
-    // echo(json_encode($row));
-    }//end while
+   // get a row...
+     // while i still have info in results set...unpack
+     while($row = $resTwo->fetch(PDO::FETCH_ASSOC)) {
+       // var_dump($row);
+       echo(json_encode($row));
+
+  }
+
 
   } //end try
 
