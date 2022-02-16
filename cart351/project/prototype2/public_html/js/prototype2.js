@@ -148,34 +148,24 @@ $(document).ready(function() {
 
 
 
-    // $.each(jsResult, function(index, object) {
-    // $(object).each(function() {
-    //   // for (let i=0; i<jsResult.length;i++) {
-    //   let keyID = jsResult['pieceID'];
-    //   console.log(object);
-    // }
-
-    // });
-    // });
-
-    for (let i in jsResult) {
-      let ids = [jsResult[i].pieceID];
-      // console.log(ids);
-      ids.sort(function(a, b) {
-        return a-b;
+    $.each(jsResult, function(index, object) {
+      $(object).each(function() {
+        let keyID = object.pieceID;
+        console.log(keyID);
+        let highest = Math.max(keyID);
+        console.log(highest);
       });
-      console.log(ids);
+    });
 
-    }
+    // for (let i in jsResult) {
+    //   let ids = jsResult[i].pieceID;
+    //   console.log(ids);
+    // }
 
     // let entryID = jsResult['pieceID'];
     // $.each(jsResult, function(index, val) {
     // console.log(entryID);
     // });
-    // for (let i=0; i<jsResult.length;i++) {
-    // console.log(jsResult['pieceID']);
-
-    // };
 
 
     // displayOriginalEntry(jsResult);
