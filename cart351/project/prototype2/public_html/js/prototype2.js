@@ -143,9 +143,19 @@ $(document).ready(function() {
   $.get("../retrieveSubmission.php", {
     "onload": "row"
   }, function(response) {
-    // console.log(response);
     let jsResult = JSON.parse(response);
     console.log(jsResult);
+
+    // let entryID = jsResult['entryID'];
+    //
+    // $.each(jsResult, function(index, val) {
+    //   console.log(id);
+    // });
+    // for (let i=0; i<jsResult.length;i++) {
+    //   console.log(pieceID);
+    //
+    //   });
+
 
     // displayOriginalEntry(jsResult);
 

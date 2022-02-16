@@ -4,7 +4,7 @@ require('openDB.php');
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
 
   try {
-
+    // echo("test");
     // $sql_select='SELECT * FROM Collection';
     // $sql_select='SELECT * FROM Collection ORDER BY RANDOM() LIMIT 1';
     // $sql_select='SELECT pieceID, entryID, artist, title, work, file FROM Collection ORDER BY RANDOM() LIMIT 1';
@@ -26,13 +26,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
     $resTwo = $file_db->query($entriesWithId);
     if (!$resTwo) die("Cannot execute query.");
 
+
+
+   //  $originalEntry = $resTwo->fetch(PDO::FETCH_ASSOC);
+   //  // $lowestPieceId = $row['pieceID'];
+   //  echo($originalEntry);
+   //
+   //
+
+   //   while($row = $resTwo->fetch(PDO::FETCH_ASSOC))
+   // {
+   //    $pieceId = $row['pieceID'];
+   //   var_dump($pieceId);
+
+     // echo("<p>");
+     // foreach ($row as $key=>$entry)
+     //   {
+     //    echo "<p>".$key." :: ".$entry."</p>";
+     //   }
+     //   echo("</p>");
+   // }
+
+
+
+    $combinedResults = [];
    // get a row...
      // while i still have info in results set...unpack
      while($row = $resTwo->fetch(PDO::FETCH_ASSOC)) {
        // var_dump($row);
-       echo(json_encode($row));
-
+       // echo(json_encode($row));
+       $combinedResults[] = $row;
   }
+  echo(json_encode($combinedResults));
 
 
   } //end try
