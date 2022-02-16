@@ -22,30 +22,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["onload"])) {
     // echo($chosenEntryId);
     //select where entryID is the same
     $entriesWithId = "SELECT pieceID, artist, title, work, file FROM Collection WHERE entryID = '$chosenEntryId'";
+    // $entriesWithId = "SELECT MIN(pieceID), artist, title, work, file FROM Collection WHERE entryID = '$chosenEntryId'";
 
     $resTwo = $file_db->query($entriesWithId);
     if (!$resTwo) die("Cannot execute query.");
 
 
+        // $combinedResults = [];
+       // get a row...
+         // while i still have info in results set...unpack
+         // while($row = $resTwo->fetch(PDO::FETCH_ASSOC)) {
+         //   $pieceIds = $row['pieceID'];
+         //   // foreach ($row as $val) {
+         //     // $pieceIds = $row['pieceID'];
+         //     $originalEntry =  min($row);
 
-   //  $originalEntry = $resTwo->fetch(PDO::FETCH_ASSOC);
-   //  // $lowestPieceId = $row['pieceID'];
-   //  echo($originalEntry);
-   //
-   //
 
-   //   while($row = $resTwo->fetch(PDO::FETCH_ASSOC))
-   // {
-   //    $pieceId = $row['pieceID'];
-   //   var_dump($pieceId);
+           // }
+           // $combinedResults[] = $row;
 
-     // echo("<p>");
-     // foreach ($row as $key=>$entry)
-     //   {
-     //    echo "<p>".$key." :: ".$entry."</p>";
-     //   }
-     //   echo("</p>");
-   // }
+           // echo("<p>");
+           // foreach ($row as $key=>$entry)
+           //   {
+           //    echo "<p>".$key." :: ".$entry."</p>";
+           //   }
+           //   echo("</p>");
+      // }
+
+      // echo(json_encode($combinedResults));
+
+
+
 
 
 

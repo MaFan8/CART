@@ -146,15 +146,36 @@ $(document).ready(function() {
     let jsResult = JSON.parse(response);
     console.log(jsResult);
 
-    // let entryID = jsResult['entryID'];
-    //
+
+
+    // $.each(jsResult, function(index, object) {
+    // $(object).each(function() {
+    //   // for (let i=0; i<jsResult.length;i++) {
+    //   let keyID = jsResult['pieceID'];
+    //   console.log(object);
+    // }
+
+    // });
+    // });
+
+    for (let i in jsResult) {
+      let ids = [jsResult[i].pieceID];
+      // console.log(ids);
+      ids.sort(function(a, b) {
+        return a-b;
+      });
+      console.log(ids);
+
+    }
+
+    // let entryID = jsResult['pieceID'];
     // $.each(jsResult, function(index, val) {
-    //   console.log(id);
+    // console.log(entryID);
     // });
     // for (let i=0; i<jsResult.length;i++) {
-    //   console.log(pieceID);
-    //
-    //   });
+    // console.log(jsResult['pieceID']);
+
+    // };
 
 
     // displayOriginalEntry(jsResult);
