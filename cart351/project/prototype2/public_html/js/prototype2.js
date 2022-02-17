@@ -116,7 +116,7 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       enctype: 'multipart/form-data',
-      url: "../contributeForm.php",
+      url: "contributeForm.php",
       data: data,
       processData: false, //prevents from converting into a query string
       contentType: false, // want multi-form data
@@ -140,7 +140,7 @@ $(document).ready(function() {
   }); // END SUBMIT
 
   // Get entries from database to display
-  $.get("../retrieveSubmission.php", {
+  $.get("retrieveSubmission.php", {
     "onload": "row"
   }, function(response) {
     let jsResult = JSON.parse(response);
