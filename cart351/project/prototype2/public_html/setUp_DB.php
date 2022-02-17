@@ -4,13 +4,13 @@
  try{
    // Create Table
    $theQuery = "CREATE TABLE Collection (
+     pieceID INTEGER PRIMARY KEY NOT NULL,
      entryID TEXT,
      artist TEXT,
      email TEXT,
      title TEXT,
      work TEXT,
-     file TEXT,
-     pieceID INTEGER PRIMARY KEY NOT NULL
+     file TEXT
    )";
 
 

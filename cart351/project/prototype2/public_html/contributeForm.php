@@ -10,8 +10,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
    $title = $_POST['title'];
    $workText = $_POST['workText'];
 
-   // // manual data insert for testing
-   // $queryInsert ="INSERT INTO Collection(entryID, artist, email, title)VALUES ('62087cde166d4', 'T2Name', 'T3@gmail.com', 'T3Title')";
+   // manual data insert for testing
+   // $queryInsert ="INSERT INTO Collection(entryID, artist, email, title)VALUES ('620dc804a0c97', 'T6Name', 'T6@gmail.com', 'T6Title')";
 
    if($_FILES)
     {

@@ -148,14 +148,13 @@ $(document).ready(function() {
 
 
 
-    $.each(jsResult, function(index, object) {
-      $(object).each(function() {
-        let keyID = object.pieceID;
-        console.log(keyID);
-        let highest = Math.max(keyID);
-        console.log(highest);
-      });
-    });
+    // $.each(jsResult, function(index, object) {
+    //   $(object).each(function() {
+    //     let keyID = object.pieceID;
+    //     console.log(keyID);
+    //     // let lowest = Math.min(keyID);
+    //   });
+    // });
 
     // for (let i in jsResult) {
     //   let ids = jsResult[i].pieceID;
