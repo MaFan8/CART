@@ -146,7 +146,33 @@ $(document).ready(function() {
     let jsResult = JSON.parse(response);
     console.log(jsResult);
 
+    // for (let i=0; i<jsResult.length; i++) {
+    //   console.log(jsResult.Object['pieceID']);
+    // }
 
+    $.each(jsResult, function(i, object) {
+      console.log(object);
+    //   let [first] = Object.keys(jsResult);
+    //   console.log(first);
+    //
+    });
+
+    for (object in jsResult) {
+      console.log(object);
+
+      // for(items in jsResult[object]) {
+      //   console.log(items);
+      // }
+    }
+
+
+    // $.each(jsResult, function(key, value) {
+    //   console.log(value);
+    // let keyID = jsResult['pieceID'];
+    // let id = $('<p>');
+    // $(id).addClass("idNum").append("entry #" + keyID);
+    // $(id).appendTo("#original");
+    // });
 
     // $.each(jsResult, function(index, object) {
     //   $(object).each(function() {
