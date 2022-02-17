@@ -144,65 +144,31 @@ $(document).ready(function() {
     "onload": "row"
   }, function(response) {
     let jsResult = JSON.parse(response);
-    console.log(jsResult);
+    // console.log(jsResult);
 
-    // for (let i=0; i<jsResult.length; i++) {
-    //   console.log(jsResult.Object['pieceID']);
-    // }
+    if (jsResult.length === 0) {
+      $('#error_message').html("Error");
+    } else {
+      $.each(jsResult, function(i, object) {
 
-    $.each(jsResult, function(i, object) {
-      console.log(object);
-    //   let [first] = Object.keys(jsResult);
-    //   console.log(first);
-    //
-    });
-
-    for (object in jsResult) {
-      console.log(object);
-
-      // for(items in jsResult[object]) {
-      //   console.log(items);
-      // }
+        let [first] = Object.keys(jsResult);
+        if (i > first) {
+          console.log("more");
+        } else if (i = first) {
+          // console.log(i);
+          displayOriginalEntry(object);
+        }
+      });
     }
-
-
-    // $.each(jsResult, function(key, value) {
-    //   console.log(value);
-    // let keyID = jsResult['pieceID'];
-    // let id = $('<p>');
-    // $(id).addClass("idNum").append("entry #" + keyID);
-    // $(id).appendTo("#original");
-    // });
-
-    // $.each(jsResult, function(index, object) {
-    //   $(object).each(function() {
-    //     let keyID = object.pieceID;
-    //     console.log(keyID);
-    //     // let lowest = Math.min(keyID);
-    //   });
-    // });
-
-    // for (let i in jsResult) {
-    //   let ids = jsResult[i].pieceID;
-    //   console.log(ids);
-    // }
-
-    // let entryID = jsResult['pieceID'];
-    // $.each(jsResult, function(index, val) {
-    // console.log(entryID);
-    // });
-
-
-    // displayOriginalEntry(jsResult);
 
   }); // END GET
 
-  function displayOriginalEntry(jsResult) {
-    let keyID = jsResult['pieceID'];
-    let keyName = jsResult['artist'];
-    let keyTitle = jsResult['title'];
-    let keyWork = jsResult['work'];
-    let keyFile = jsResult['file'];
+  function displayOriginalEntry(object) {
+    let keyID = object['pieceID'];
+    let keyName = object['artist'];
+    let keyTitle = object['title'];
+    let keyWork = object['work'];
+    let keyFile = object['file'];
 
     let id = $('<p>');
     let title = $('<p>');
@@ -228,7 +194,6 @@ $(document).ready(function() {
       $(img).addClass("entryFile").attr('src', keyFile);
       $(img).appendTo("#original");
     }
-
 
   } // END function displayOriginalEntry
 
